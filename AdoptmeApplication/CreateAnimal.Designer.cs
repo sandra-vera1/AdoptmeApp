@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateAnimal));
-            modelButton1 = new ModelButton();
+            btnSave = new ModelButton();
             lblAnimalId = new Label();
             lblName = new Label();
             lblAge = new Label();
@@ -43,7 +43,7 @@
             txtAge = new TextBox();
             txtBreed = new TextBox();
             label10 = new Label();
-            modelButton2 = new ModelButton();
+            btnUploadPhoto = new ModelButton();
             pictureBox1 = new PictureBox();
             cboSex = new ComboBox();
             cboCategory = new ComboBox();
@@ -56,21 +56,21 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // modelButton1
+            // btnSave
             // 
-            modelButton1.BackColor = Color.White;
-            modelButton1.BorderRadius = 41;
-            modelButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            modelButton1.ForeColor = Color.White;
-            modelButton1.GradientAngle = 90F;
-            modelButton1.GradientBottomColor = Color.MediumPurple;
-            modelButton1.GradientTopColor = Color.SlateBlue;
-            modelButton1.Location = new Point(1115, 874);
-            modelButton1.Name = "modelButton1";
-            modelButton1.Size = new Size(175, 53);
-            modelButton1.TabIndex = 0;
-            modelButton1.Text = "Save";
-            modelButton1.UseVisualStyleBackColor = false;
+            btnSave.BackColor = Color.White;
+            btnSave.BorderRadius = 41;
+            btnSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = Color.White;
+            btnSave.GradientAngle = 90F;
+            btnSave.GradientBottomColor = Color.MediumPurple;
+            btnSave.GradientTopColor = Color.SlateBlue;
+            btnSave.Location = new Point(1115, 874);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(175, 53);
+            btnSave.TabIndex = 0;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = false;
             // 
             // lblAnimalId
             // 
@@ -186,27 +186,27 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.DarkGreen;
-            label10.Location = new Point(639, 53);
+            label10.Location = new Point(638, 46);
             label10.Name = "label10";
-            label10.Size = new Size(460, 71);
+            label10.Size = new Size(503, 71);
             label10.TabIndex = 19;
-            label10.Text = "Create an Animal";
+            label10.Text = "Register a New Pet";
             // 
-            // modelButton2
+            // btnUploadPhoto
             // 
-            modelButton2.BackColor = Color.White;
-            modelButton2.BorderRadius = 41;
-            modelButton2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            modelButton2.ForeColor = Color.White;
-            modelButton2.GradientAngle = 90F;
-            modelButton2.GradientBottomColor = Color.MediumPurple;
-            modelButton2.GradientTopColor = Color.SlateBlue;
-            modelButton2.Location = new Point(377, 214);
-            modelButton2.Name = "modelButton2";
-            modelButton2.Size = new Size(175, 53);
-            modelButton2.TabIndex = 20;
-            modelButton2.Text = "Upload Photo";
-            modelButton2.UseVisualStyleBackColor = false;
+            btnUploadPhoto.BackColor = Color.White;
+            btnUploadPhoto.BorderRadius = 41;
+            btnUploadPhoto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUploadPhoto.ForeColor = Color.White;
+            btnUploadPhoto.GradientAngle = 90F;
+            btnUploadPhoto.GradientBottomColor = Color.MediumPurple;
+            btnUploadPhoto.GradientTopColor = Color.SlateBlue;
+            btnUploadPhoto.Location = new Point(377, 214);
+            btnUploadPhoto.Name = "btnUploadPhoto";
+            btnUploadPhoto.Size = new Size(175, 53);
+            btnUploadPhoto.TabIndex = 20;
+            btnUploadPhoto.Text = "Upload Photo";
+            btnUploadPhoto.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -267,7 +267,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(34, -38);
+            pictureBox2.Location = new Point(34, -54);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(337, 274);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -297,7 +297,7 @@
             Controls.Add(cboCategory);
             Controls.Add(cboSex);
             Controls.Add(pictureBox1);
-            Controls.Add(modelButton2);
+            Controls.Add(btnUploadPhoto);
             Controls.Add(label10);
             Controls.Add(txtBreed);
             Controls.Add(txtAge);
@@ -311,7 +311,7 @@
             Controls.Add(lblAge);
             Controls.Add(lblName);
             Controls.Add(lblAnimalId);
-            Controls.Add(modelButton1);
+            Controls.Add(btnSave);
             Name = "CreateAnimal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateAnimal";
@@ -323,7 +323,7 @@
 
         #endregion
 
-        private ModelButton modelButton1;
+        private ModelButton btnSave;
         private Label lblAnimalId;
         private Label lblName;
         private Label lblAge;
@@ -337,7 +337,7 @@
         private TextBox txtAge;
         private TextBox txtBreed;
         private Label label10;
-        private ModelButton modelButton2;
+        private ModelButton btnUploadPhoto;
         private PictureBox pictureBox1;
         private ComboBox cboSex;
         private ComboBox cboCategory;
