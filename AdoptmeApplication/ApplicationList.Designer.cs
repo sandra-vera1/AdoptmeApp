@@ -1,6 +1,6 @@
 ﻿namespace AdoptmeApplication
 {
-    partial class AnimalDetails
+    partial class ApplicationList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // AnimalDetails
-            // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1364, 986);
-            Name = "AnimalDetails";
-            Text = "AnimalDetails";
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "ApplicationList";
         }
 
         #endregion
