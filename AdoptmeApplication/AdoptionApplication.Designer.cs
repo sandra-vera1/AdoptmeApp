@@ -45,7 +45,7 @@
             lblNumAdult = new Label();
             lblAddress = new Label();
             lblFullName = new Label();
-            btnSave = new ModelButton();
+            btnSendApplication = new ModelButton();
             label1 = new Label();
             txtPhoneNumber = new TextBox();
             lblPhoneNumber = new Label();
@@ -225,22 +225,22 @@
             lblFullName.TabIndex = 76;
             lblFullName.Text = "Full Name";
             // 
-            // btnSave
+            // btnSendApplication
             // 
-            btnSave.BackColor = Color.White;
-            btnSave.BorderRadius = 41;
-            btnSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSave.ForeColor = Color.White;
-            btnSave.GradientAngle = 90F;
-            btnSave.GradientBottomColor = Color.MediumPurple;
-            btnSave.GradientTopColor = Color.SlateBlue;
-            btnSave.Location = new Point(263, 668);
-            btnSave.Margin = new Padding(2);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(108, 43);
-            btnSave.TabIndex = 94;
-            btnSave.Text = "Send";
-            btnSave.UseVisualStyleBackColor = false;
+            btnSendApplication.BackColor = Color.White;
+            btnSendApplication.BorderRadius = 41;
+            btnSendApplication.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSendApplication.ForeColor = Color.White;
+            btnSendApplication.GradientAngle = 90F;
+            btnSendApplication.GradientBottomColor = Color.MediumPurple;
+            btnSendApplication.GradientTopColor = Color.SlateBlue;
+            btnSendApplication.Location = new Point(263, 668);
+            btnSendApplication.Margin = new Padding(2);
+            btnSendApplication.Name = "btnSendApplication";
+            btnSendApplication.Size = new Size(108, 43);
+            btnSendApplication.TabIndex = 94;
+            btnSendApplication.Text = "Send";
+            btnSendApplication.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -351,7 +351,7 @@
             Controls.Add(txtPhoneNumber);
             Controls.Add(lblPhoneNumber);
             Controls.Add(label1);
-            Controls.Add(btnSave);
+            Controls.Add(btnSendApplication);
             Controls.Add(txtAnimalId);
             Controls.Add(lblAnimalId);
             Controls.Add(lblNumPets);
@@ -369,6 +369,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(lblAdoptionApplication);
             Name = "AdoptionApplication";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Adoption Application Form";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -396,7 +397,7 @@
         private Label lblNumAdult;
         private Label lblAddress;
         private Label lblFullName;
-        private ModelButton btnSave;
+        private ModelButton btnSendApplication;
         private Label label1;
         private TextBox txtPhoneNumber;
         private Label lblPhoneNumber;
