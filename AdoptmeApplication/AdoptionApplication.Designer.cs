@@ -126,7 +126,7 @@
             // cboOutdoorAv
             // 
             cboOutdoorAv.FormattingEnabled = true;
-            cboOutdoorAv.Items.AddRange(new object[] { "Yard", "Access to parks", "Balcony", "Available two options of above", "All (Yard, Access to parks, Balcony)", "None" });
+            cboOutdoorAv.Items.AddRange(new object[] { "Yard", "Access to parks", "Balcony", "Two space (Yard, Access to parks, Balcony)", "All (Yard, Access to parks, Balcony)", "None" });
             cboOutdoorAv.Location = new Point(217, 611);
             cboOutdoorAv.Margin = new Padding(2);
             cboOutdoorAv.Name = "cboOutdoorAv";
@@ -136,7 +136,7 @@
             // cboNumAdult
             // 
             cboNumAdult.FormattingEnabled = true;
-            cboNumAdult.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More" });
+            cboNumAdult.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More than 10" });
             cboNumAdult.Location = new Point(217, 397);
             cboNumAdult.Margin = new Padding(2);
             cboNumAdult.Name = "cboNumAdult";
@@ -307,7 +307,7 @@
             // cboNumChildren
             // 
             cboNumChildren.FormattingEnabled = true;
-            cboNumChildren.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More" });
+            cboNumChildren.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More than 10" });
             cboNumChildren.Location = new Point(217, 437);
             cboNumChildren.Margin = new Padding(2);
             cboNumChildren.Name = "cboNumChildren";
@@ -317,7 +317,7 @@
             // cboNumPets
             // 
             cboNumPets.FormattingEnabled = true;
-            cboNumPets.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More" });
+            cboNumPets.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More than 10" });
             cboNumPets.Location = new Point(217, 477);
             cboNumPets.Margin = new Padding(2);
             cboNumPets.Name = "cboNumPets";

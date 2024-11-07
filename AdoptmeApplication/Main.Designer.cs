@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             lblPassword = new Label();
             lblUsername = new Label();
             txtUsername = new TextBox();
             btnLogin = new ModelButton();
             txtPassword = new TextBox();
-            pictureBox2 = new PictureBox();
             lblAdoptionApplication = new Label();
             panel1 = new Panel();
+            modelButton1 = new ModelButton();
             panelButtonsAdmin = new Panel();
             panelViewApplications = new Panel();
             label3 = new Label();
@@ -45,14 +44,22 @@
             panelCreateAnimal = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            modelButton1 = new ModelButton();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            cboLocality = new ComboBox();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
+            label5 = new Label();
+            label6 = new Label();
+            pictureBox3 = new PictureBox();
+            linkLabel1 = new LinkLabel();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
             panelButtonsAdmin.SuspendLayout();
             panelViewApplications.SuspendLayout();
             panelCreateCategory.SuspendLayout();
             panelCreateAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lblPassword
@@ -112,25 +119,12 @@
             txtPassword.Size = new Size(171, 27);
             txtPassword.TabIndex = 96;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(11, 181);
-            pictureBox2.Margin = new Padding(2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(150, 120);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 97;
-            pictureBox2.TabStop = false;
-            // 
             // lblAdoptionApplication
             // 
             lblAdoptionApplication.AutoSize = true;
             lblAdoptionApplication.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAdoptionApplication.ForeColor = Color.DarkGreen;
-            lblAdoptionApplication.Location = new Point(165, 217);
+            lblAdoptionApplication.Location = new Point(600, 177);
             lblAdoptionApplication.Margin = new Padding(2, 0, 2, 0);
             lblAdoptionApplication.Name = "lblAdoptionApplication";
             lblAdoptionApplication.Size = new Size(280, 46);
@@ -153,6 +147,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1481, 147);
             panel1.TabIndex = 99;
+            // 
+            // modelButton1
+            // 
+            modelButton1.BackColor = Color.White;
+            modelButton1.BorderRadius = 41;
+            modelButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            modelButton1.ForeColor = Color.White;
+            modelButton1.GradientAngle = 90F;
+            modelButton1.GradientBottomColor = SystemColors.ActiveBorder;
+            modelButton1.GradientTopColor = Color.LightSlateGray;
+            modelButton1.Location = new Point(1356, 13);
+            modelButton1.Margin = new Padding(2);
+            modelButton1.Name = "modelButton1";
+            modelButton1.Size = new Size(108, 43);
+            modelButton1.TabIndex = 101;
+            modelButton1.Text = "Logout";
+            modelButton1.UseVisualStyleBackColor = false;
             // 
             // panelButtonsAdmin
             // 
@@ -231,22 +242,91 @@
             pictureBox1.TabIndex = 100;
             pictureBox1.TabStop = false;
             // 
-            // modelButton1
+            // cboLocality
             // 
-            modelButton1.BackColor = Color.White;
-            modelButton1.BorderRadius = 41;
-            modelButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            modelButton1.ForeColor = Color.White;
-            modelButton1.GradientAngle = 90F;
-            modelButton1.GradientBottomColor = SystemColors.ActiveBorder;
-            modelButton1.GradientTopColor = Color.LightSlateGray;
-            modelButton1.Location = new Point(1356, 13);
-            modelButton1.Margin = new Padding(2);
-            modelButton1.Name = "modelButton1";
-            modelButton1.Size = new Size(108, 43);
-            modelButton1.TabIndex = 101;
-            modelButton1.Text = "Logout";
-            modelButton1.UseVisualStyleBackColor = false;
+            cboLocality.FormattingEnabled = true;
+            cboLocality.Items.AddRange(new object[] { "Acadia\t", "Country Hills", "Downtown", "Elbow Park", "GlenBrook", "Greenview", "Highwood", "Medicine Hill", "Sage Hill", "Tuscany", "Willow Park", "Yorkville" });
+            cboLocality.Location = new Point(531, 300);
+            cboLocality.Margin = new Padding(2);
+            cboLocality.Name = "cboLocality";
+            cboLocality.Size = new Size(125, 28);
+            cboLocality.TabIndex = 101;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.DarkGreen;
+            label4.Location = new Point(450, 303);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(66, 20);
+            label4.TabIndex = 102;
+            label4.Text = "Filter by";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Dog", "Cat", "Rabbit", "Exotic" });
+            comboBox1.Location = new Point(677, 300);
+            comboBox1.Margin = new Padding(2);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(125, 28);
+            comboBox1.TabIndex = 103;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.DarkGreen;
+            label5.Location = new Point(531, 278);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(69, 20);
+            label5.TabIndex = 104;
+            label5.Text = "Location";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.DarkGreen;
+            label6.Location = new Point(677, 278);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(112, 20);
+            label6.TabIndex = 105;
+            label6.Text = "Type of animal";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Location = new Point(160, 415);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(165, 132);
+            pictureBox3.TabIndex = 106;
+            pictureBox3.TabStop = false;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(160, 564);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(76, 20);
+            linkLabel1.TabIndex = 107;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "linkLabel1";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(677, 511);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(780, 309);
+            dataGridView1.TabIndex = 108;
             // 
             // Main
             // 
@@ -254,13 +334,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(1481, 994);
-            Controls.Add(pictureBox2);
+            Controls.Add(dataGridView1);
+            Controls.Add(linkLabel1);
+            Controls.Add(pictureBox3);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(comboBox1);
+            Controls.Add(label4);
+            Controls.Add(cboLocality);
             Controls.Add(lblAdoptionApplication);
             Controls.Add(panel1);
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Catalog";
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panelButtonsAdmin.ResumeLayout(false);
@@ -271,6 +357,8 @@
             panelCreateAnimal.ResumeLayout(false);
             panelCreateAnimal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -281,7 +369,6 @@
         private TextBox txtUsername;
         private ModelButton btnLogin;
         private TextBox txtPassword;
-        private PictureBox pictureBox2;
         private Label lblAdoptionApplication;
         private Panel panel1;
         private PictureBox pictureBox1;
@@ -294,5 +381,13 @@
         private Panel panelViewApplications;
         private Label label3;
         private ModelButton modelButton1;
+        private ComboBox cboLocality;
+        private Label label4;
+        private ComboBox comboBox1;
+        private Label label5;
+        private Label label6;
+        private PictureBox pictureBox3;
+        private LinkLabel linkLabel1;
+        private DataGridView dataGridView1;
     }
 }
