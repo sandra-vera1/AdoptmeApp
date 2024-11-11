@@ -50,9 +50,9 @@
             txtAnimalId = new TextBox();
             lblAnimalId = new Label();
             btnUploadPhoto = new ModelButton();
-            pictureBox1 = new PictureBox();
+            picAnimal = new PictureBox();
             pictureBox2 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picAnimal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -228,6 +228,7 @@
             btnSaveChange.TabIndex = 52;
             btnSaveChange.Text = "Save";
             btnSaveChange.UseVisualStyleBackColor = false;
+            btnSaveChange.Click += btnSaveChange_Click;
             // 
             // txtAnimalId
             // 
@@ -263,14 +264,14 @@
             btnUploadPhoto.Text = "Upload Photo";
             btnUploadPhoto.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // picAnimal
             // 
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(246, 299);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(587, 551);
-            pictureBox1.TabIndex = 73;
-            pictureBox1.TabStop = false;
+            picAnimal.BorderStyle = BorderStyle.FixedSingle;
+            picAnimal.Location = new Point(246, 299);
+            picAnimal.Name = "picAnimal";
+            picAnimal.Size = new Size(587, 551);
+            picAnimal.TabIndex = 73;
+            picAnimal.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -290,7 +291,7 @@
             BackColor = Color.Ivory;
             ClientSize = new Size(1676, 993);
             Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(picAnimal);
             Controls.Add(btnUploadPhoto);
             Controls.Add(txtAnimalId);
             Controls.Add(lblAnimalId);
@@ -313,8 +314,9 @@
             Controls.Add(btnSaveChange);
             Controls.Add(lblUpdate);
             Name = "EditAnimal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UpdateAnimal";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picAnimal).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -344,7 +346,7 @@
         private TextBox txtAnimalId;
         private Label lblAnimalId;
         private ModelButton btnUploadPhoto;
-        private PictureBox pictureBox1;
+        private PictureBox picAnimal;
         private PictureBox pictureBox2;
     }
 }

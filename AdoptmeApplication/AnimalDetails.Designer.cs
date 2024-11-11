@@ -235,6 +235,7 @@
             btnUpdate.TabIndex = 29;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // label10
             // 
@@ -282,6 +283,7 @@
             btnAdoptMe.TabIndex = 51;
             btnAdoptMe.Text = "Adopt me";
             btnAdoptMe.UseVisualStyleBackColor = false;
+            btnAdoptMe.Click += btnAdoptMe_Click;
             // 
             // AnimalDetails
             // 
@@ -313,6 +315,7 @@
             Controls.Add(lblAnimalId);
             Controls.Add(btnUpdate);
             Name = "AnimalDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AnimalDetails";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

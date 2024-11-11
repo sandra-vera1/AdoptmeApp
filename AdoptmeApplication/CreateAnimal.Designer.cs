@@ -44,7 +44,7 @@
             txtBreed = new TextBox();
             label10 = new Label();
             btnUploadPhoto = new ModelButton();
-            pictureBox1 = new PictureBox();
+            picAnimal = new PictureBox();
             cboSex = new ComboBox();
             cboCategory = new ComboBox();
             cboStatus = new ComboBox();
@@ -52,7 +52,7 @@
             lblCategory = new Label();
             pictureBox2 = new PictureBox();
             cboSize = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picAnimal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -71,6 +71,7 @@
             btnSave.TabIndex = 0;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // lblAnimalId
             // 
@@ -207,15 +208,16 @@
             btnUploadPhoto.TabIndex = 20;
             btnUploadPhoto.Text = "Upload Photo";
             btnUploadPhoto.UseVisualStyleBackColor = false;
+            btnUploadPhoto.Click += btnUploadPhoto_Click;
             // 
-            // pictureBox1
+            // picAnimal
             // 
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(191, 318);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(587, 551);
-            pictureBox1.TabIndex = 21;
-            pictureBox1.TabStop = false;
+            picAnimal.BorderStyle = BorderStyle.FixedSingle;
+            picAnimal.Location = new Point(191, 318);
+            picAnimal.Name = "picAnimal";
+            picAnimal.Size = new Size(587, 551);
+            picAnimal.TabIndex = 21;
+            picAnimal.TabStop = false;
             // 
             // cboSex
             // 
@@ -229,7 +231,7 @@
             // cboCategory
             // 
             cboCategory.FormattingEnabled = true;
-            cboCategory.Items.AddRange(new object[] { "Dog", "Cat", "Rabbit" });
+            cboCategory.Items.AddRange(new object[] { "Dog", "Cat", "Bird", "Rabbit", "Snake", "Hamster", "Spider" });
             cboCategory.Location = new Point(1175, 621);
             cboCategory.Name = "cboCategory";
             cboCategory.Size = new Size(200, 40);
@@ -247,7 +249,7 @@
             // cboLocality
             // 
             cboLocality.FormattingEnabled = true;
-            cboLocality.Items.AddRange(new object[] { "Acadia\t", "Country Hills", "Downtown", "Elbow Park", "GlenBrook", "Greenview", "Highwood", "Medicine Hill", "Sage Hill", "Tuscany", "Willow Park", "Yorkville" });
+            cboLocality.Items.AddRange(new object[] { "Acadia", "Country Hills", "Downtown", "Elbow Park", "GlenBrook", "Greenview", "Highwood", "Medicine Hill", "Sage Hill", "Tuscany", "Willow Park", "Yorkville" });
             cboLocality.Location = new Point(1175, 701);
             cboLocality.Name = "cboLocality";
             cboLocality.Size = new Size(200, 40);
@@ -296,7 +298,7 @@
             Controls.Add(cboStatus);
             Controls.Add(cboCategory);
             Controls.Add(cboSex);
-            Controls.Add(pictureBox1);
+            Controls.Add(picAnimal);
             Controls.Add(btnUploadPhoto);
             Controls.Add(label10);
             Controls.Add(txtBreed);
@@ -315,7 +317,7 @@
             Name = "CreateAnimal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateAnimal";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picAnimal).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -338,7 +340,7 @@
         private TextBox txtBreed;
         private Label label10;
         private ModelButton btnUploadPhoto;
-        private PictureBox pictureBox1;
+        private PictureBox picAnimal;
         private ComboBox cboSex;
         private ComboBox cboCategory;
         private ComboBox cboStatus;

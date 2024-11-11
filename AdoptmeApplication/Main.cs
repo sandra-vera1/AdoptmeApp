@@ -35,7 +35,7 @@ namespace AdoptmeApplication
 
         private void LoadAllAnimals()
         {
-            string query = "SELECT Animal_id, Animal_Name, Animal_Age, Animal_Sex FROM Animal";
+            string query = "SELECT Animal_id, Animal_Name, Animal_Age, Animal_Sex, Animal_Img FROM Animal"; //I added Animal_Img to validate the image
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -51,6 +51,11 @@ namespace AdoptmeApplication
                         dataTable.Load(reader);
 
                         dataGridView1.DataSource = dataTable;
+
+                        //I added these three line of code to adjust the size of the column to see the image:
+                        DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)dataGridView1.Columns["Animal_Img"];
+                        imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                        dataGridView1.RowTemplate.Height = 150;
                     }
 
                 }
