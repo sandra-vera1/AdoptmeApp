@@ -15,16 +15,6 @@ namespace AdoptmeApplication
             LoadAllAnimals();
             LoadAllLocations();
             LoadAllTypeAnimals();
-
-            // Load image from Visual Studio's Properties.Resources to handle images as embedded resources.
-            pictureBox3.Image = Properties.Resources.Canary;
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
-            // this.BackgroundImage = imageList1.Images[0];
-
-
-
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -33,9 +23,14 @@ namespace AdoptmeApplication
             System.Diagnostics.Process.Start("https://www.google.com");
         }
 
+        DataTable dataTableAnimals;
         private void LoadAllAnimals()
         {
-            string query = "SELECT Animal_id, Animal_Name, Animal_Age, Animal_Sex, Animal_Img FROM Animal"; //I added Animal_Img to validate the image
+            string query = "SELECT Ani.Animal_id, Ani.Animal_Name, Ani.Animal_Age, Ani.Animal_Sex, Ani.Animal_Img, " +
+                "Ani.Animal_Location_id, Ani.Animal_Categ_id, Cat.Animal_Categ_Name, Loc.Animal_Loc_Descrip " +
+                "FROM Animal AS Ani " +
+                "INNER JOIN Animal_Category AS Cat ON Ani.Animal_Categ_id = Cat.Animal_Categ_id " +
+                "INNER JOIN Animal_Location AS Loc ON Ani.Animal_Location_id = Loc.Animal_Loc_id"; //I added Animal_Img to validate the image
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -47,15 +42,9 @@ namespace AdoptmeApplication
                         SqlDataReader reader = command.ExecuteReader();
 
                         DataTable dataTable = new DataTable();
-
                         dataTable.Load(reader);
-
-                        dataGridView1.DataSource = dataTable;
-
-                        //I added these three line of code to adjust the size of the column to see the image:
-                        DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)dataGridView1.Columns["Animal_Img"];
-                        imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                        dataGridView1.RowTemplate.Height = 150;
+                        dataTableAnimals = dataTable;
+                        FillDataGrid(dataTable);
                     }
 
                 }
@@ -68,12 +57,20 @@ namespace AdoptmeApplication
                 {
                     connection.Close();
                 }
-
-
             }
+        }
 
-
-
+        private void FillDataGrid(DataTable dataTable)
+        {
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.ClearSelection();
+            //I added these three line of code to adjust the size of the column to see the image:
+            DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)dataGridView1.Columns["Animal_Img"];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dataGridView1.RowTemplate.Height = 150;
+            dataGridView1.Columns["Animal_id"].Visible = false;
+            dataGridView1.Columns["Animal_Location_id"].Visible = false;
+            dataGridView1.Columns["Animal_Categ_id"].Visible = false;
         }
 
         private void createAnimalToolStripMenuItem_Click(object sender, EventArgs e) // Menu
@@ -101,6 +98,38 @@ namespace AdoptmeApplication
             this.Enabled = true;
         }
 
+        private void SelectAnimalDetails_Click(object sender, EventArgs e) // Menu
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                int animalId = Convert.ToInt32(selectedRow.Cells["Animal_id"].Value.ToString());
+                this.Enabled = false;
+                AnimalDetails animalDetails = new AnimalDetails(animalId);
+                animalDetails.ShowDialog();
+                this.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Please, select at least one animal");
+            }
+        }
+
+        // Event handler to get the selected Id when an item is selected
+        private void SearchAnimal_Click(object sender, EventArgs e)
+        {
+            string Filter = LocalityId != -1 ? $" Animal_Location_id = {LocalityId} " : "";
+            Filter += LocalityId != -1 && TypeAnimalIdSelected != -1 ? " AND " : "";
+            Filter += TypeAnimalIdSelected != -1 ? $" Animal_Categ_id = {TypeAnimalIdSelected} " : "";
+            DataRow[] dr = dataTableAnimals.Select(Filter);
+            DataTable animals = dataTableAnimals.Clone();
+            foreach (DataRow row in dr)
+            {
+                animals.ImportRow(row);
+            }
+            dataGridView1.DataSource = animals;
+        }
+
 
         /// <summary>
         /// ComboBox about Locations
@@ -119,7 +148,11 @@ namespace AdoptmeApplication
                         SqlDataReader reader = command.ExecuteReader();
 
                         cboLocality.Items.Clear();
-
+                        cboLocality.Items.Add(new ComboBoxItem
+                        {
+                            Text = "All",
+                            Value = -1
+                        });
                         while (reader.Read())
                         {
                             // Add name to ComboBox, but store Id as the value
@@ -131,6 +164,7 @@ namespace AdoptmeApplication
                         }
 
                         reader.Close();
+                        cboLocality.SelectedIndex = 0;
                     }
 
                 }
@@ -151,7 +185,7 @@ namespace AdoptmeApplication
 
         }
 
-
+        int LocalityId = -1;
         // Event handler to get the selected Id when an item is selected
         private void cboLocality_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -159,8 +193,7 @@ namespace AdoptmeApplication
             ComboBoxItem selectedItem = (ComboBoxItem)cboLocality.SelectedItem;
 
             // Retrieve the Id from the Value property
-            int Id = (int)selectedItem.Value;
-            MessageBox.Show("Selected Id: " + Id);
+            LocalityId = (int)selectedItem.Value;
         }
 
         // Define a class to hold the ComboBox item (text and value)
@@ -199,6 +232,11 @@ namespace AdoptmeApplication
 
                         cboTypeAnimal.Items.Clear();
 
+                        cboTypeAnimal.Items.Add(new ComboBoxItemA
+                        {
+                            Animal_Loc_DescripText = "All",
+                            Animal_Loc_idValue = -1
+                        });
                         while (reader.Read())
                         {
                             // Add category name to ComboBox, but store Id as the value
@@ -208,7 +246,7 @@ namespace AdoptmeApplication
                                 Animal_Loc_idValue = reader["Animal_Categ_id"]
                             });
                         }
-
+                        cboTypeAnimal.SelectedIndex = 0;
                         reader.Close();
                     }
 
@@ -230,7 +268,7 @@ namespace AdoptmeApplication
 
         }
 
-
+        int TypeAnimalIdSelected = -1;
         // Event handler to get the selected Id when an item is selected
         private void cboTypeAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -238,8 +276,7 @@ namespace AdoptmeApplication
             ComboBoxItemA selectedItem = (ComboBoxItemA)cboTypeAnimal.SelectedItem;
 
             // Retrieve the Id from the Value property
-            int Id = (int)selectedItem.Animal_Loc_idValue;
-            MessageBox.Show("Selected Id: " + Id);
+            TypeAnimalIdSelected = (int)selectedItem.Animal_Loc_idValue;
         }
 
         // Define a class to hold the ComboBox item (text and value)

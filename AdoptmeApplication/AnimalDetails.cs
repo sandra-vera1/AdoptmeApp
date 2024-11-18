@@ -19,11 +19,11 @@ namespace AdoptmeApplication
         string connectionString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
 
         private int animalId;
-        public AnimalDetails()
+        public AnimalDetails(int animalId)
         {
-
             InitializeComponent();
             this.animalId = animalId;
+            LoadAnimalDetails();
         }
 
         private void AnimalDetails_Load(object sender, EventArgs e)
