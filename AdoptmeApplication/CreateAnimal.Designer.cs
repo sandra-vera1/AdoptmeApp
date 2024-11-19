@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateAnimal));
             btnSave = new ModelButton();
-            lblAnimalId = new Label();
             lblName = new Label();
             lblAge = new Label();
             lblSex = new Label();
@@ -38,7 +37,6 @@
             lblSize = new Label();
             lblLocality = new Label();
             lblStatus = new Label();
-            txtAnimalId = new TextBox();
             txtName = new TextBox();
             txtAge = new TextBox();
             txtBreed = new TextBox();
@@ -72,16 +70,6 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
-            // 
-            // lblAnimalId
-            // 
-            lblAnimalId.AutoSize = true;
-            lblAnimalId.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAnimalId.Location = new Point(1009, 204);
-            lblAnimalId.Name = "lblAnimalId";
-            lblAnimalId.Size = new Size(132, 32);
-            lblAnimalId.TabIndex = 1;
-            lblAnimalId.Text = "Animal Id:";
             // 
             // lblName
             // 
@@ -153,14 +141,6 @@
             lblStatus.TabIndex = 9;
             lblStatus.Text = "Status";
             // 
-            // txtAnimalId
-            // 
-            txtAnimalId.Location = new Point(1175, 194);
-            txtAnimalId.Name = "txtAnimalId";
-            txtAnimalId.ReadOnly = true;
-            txtAnimalId.Size = new Size(200, 39);
-            txtAnimalId.TabIndex = 10;
-            // 
             // txtName
             // 
             txtName.Location = new Point(1175, 265);
@@ -216,6 +196,7 @@
             picAnimal.Location = new Point(191, 318);
             picAnimal.Name = "picAnimal";
             picAnimal.Size = new Size(587, 551);
+            picAnimal.SizeMode = PictureBoxSizeMode.Zoom;
             picAnimal.TabIndex = 21;
             picAnimal.TabStop = false;
             // 
@@ -304,7 +285,6 @@
             Controls.Add(txtBreed);
             Controls.Add(txtAge);
             Controls.Add(txtName);
-            Controls.Add(txtAnimalId);
             Controls.Add(lblStatus);
             Controls.Add(lblLocality);
             Controls.Add(lblSize);
@@ -312,7 +292,6 @@
             Controls.Add(lblSex);
             Controls.Add(lblAge);
             Controls.Add(lblName);
-            Controls.Add(lblAnimalId);
             Controls.Add(btnSave);
             Name = "CreateAnimal";
             StartPosition = FormStartPosition.CenterScreen;
@@ -326,7 +305,6 @@
         #endregion
 
         private ModelButton btnSave;
-        private Label lblAnimalId;
         private Label lblName;
         private Label lblAge;
         private Label lblSex;
@@ -334,7 +312,6 @@
         private Label lblSize;
         private Label lblLocality;
         private Label lblStatus;
-        private TextBox txtAnimalId;
         private TextBox txtName;
         private TextBox txtAge;
         private TextBox txtBreed;

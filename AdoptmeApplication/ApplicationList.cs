@@ -67,7 +67,7 @@ namespace AdoptmeApplication
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView1_SelectionChanged(object? sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {

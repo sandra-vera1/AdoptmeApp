@@ -29,8 +29,8 @@ namespace AdoptmeApplication
             string AnimalSex = cboSex.Text;
             string AnimalBreed = txtBreed.Text;
             string AnimalSize = cboSize.Text;
-            string AnimalCategory = cboCategory.Text; // Descripción
-            string AnimalLocality = cboLocality.Text; // Descripción
+            string AnimalCategory = cboCategory.Text; // Description
+            string AnimalLocality = cboLocality.Text; // Description
             string AnimalStatus = cboStatus.Text;
             ErrorProvider errorProvider = new ErrorProvider();
 
@@ -178,7 +178,7 @@ namespace AdoptmeApplication
         private void btnUploadPhoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)| *.jpg; *.jeg; *.gif; *.bmp";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)| *.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
             {
 

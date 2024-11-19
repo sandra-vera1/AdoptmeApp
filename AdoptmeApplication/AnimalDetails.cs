@@ -26,22 +26,21 @@ namespace AdoptmeApplication
             LoadAnimalDetails();
         }
 
-        private void AnimalDetails_Load(object sender, EventArgs e)
-        {
-            LoadAnimalDetails();
-        }
-
         private void LoadAnimalDetails()
         {
-            string query = "SELECT Animal_Name, Animal_Age, Animal_Sex, Animal_Breed, Animal_Size, Animal_Status, Animal_Location_id, Animal_Categ_id " +
-                           "FROM Animal WHERE Animal_Id = @AnimalId";
+            string query = @"SELECT Ani.Animal_Name, Ani.Animal_Age, Ani.Animal_Sex, Ani.Animal_Breed, Ani.Animal_Size, 
+            Ani.Animal_Status, Ani.Animal_Img, loc.Animal_Loc_Descrip AS LocationDescription, cat.Animal_Categ_Name AS CategoryName
+            FROM Animal Ani 
+            INNER JOIN Animal_Location loc ON Ani.Animal_Location_id = loc.Animal_Loc_id
+            INNER JOIN Animal_Category cat ON Ani.Animal_Categ_id = cat.Animal_Categ_id
+            WHERE Ani.Animal_Id = @animalId";
 
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@AnimalId", animalId);
+                    command.Parameters.AddWithValue("@animalId", animalId);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -53,48 +52,31 @@ namespace AdoptmeApplication
                             txtBreed.Text = reader["Animal_Breed"].ToString();
                             cboSize.Text = reader["Animal_Size"].ToString();
                             cboStatus.Text = reader["Animal_Status"].ToString();
+                            cboLocality.Text = reader["LocationDescription"].ToString();
+                            cboCategory.Text = reader["CategoryName"].ToString();
 
-                            int locationId = Convert.ToInt32(reader["Animal_Location_id"]);
-                            int categoryId = Convert.ToInt32(reader["Animal_Categ_id"]);
-
-                            cboLocality.Text = GetLocationId(locationId);
-                            cboCategory.Text = GetCategoryId(categoryId);
+                    
+                            if (reader["Animal_Img"] != DBNull.Value)
+                            {
+                                byte[] imageBytes = (byte[])reader["Animal_Img"];
+                                using (MemoryStream ms = new MemoryStream(imageBytes))
+                                {
+                                    pictureBox1.Image = Image.FromStream(ms);
+                                }
+                            }
+                            else
+                            {
+                                pictureBox1.Image = null;
+                            }
                         }
                     }
-                }
-            }
-        }
-        private string GetLocationId(int locationId)
-        {
-            string query = "SELECT Animal_Loc_Descrip FROM Animal_Location WHERE Animal_Loc_id = @LocationId";
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@LocationId", locationId);
-                    return command.ExecuteScalar()?.ToString() ?? string.Empty;
-                }
-            }
-        }
-
-        private string GetCategoryId(int categoryId)
-        {
-            string query = "SELECT Animal_Categ_Name FROM Animal_Category WHERE Animal_Categ_id = @CategoryId";
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@CategoryId", categoryId);
-                    return command.ExecuteScalar()?.ToString() ?? string.Empty;
                 }
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            EditAnimal UpdateAnimalform = new EditAnimal();
+            EditAnimal UpdateAnimalform = new EditAnimal(animalId);
             UpdateAnimalform.Show();
         }
 

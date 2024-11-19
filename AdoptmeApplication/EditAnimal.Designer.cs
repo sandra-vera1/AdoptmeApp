@@ -47,8 +47,6 @@
             lblAge = new Label();
             lblName = new Label();
             btnSaveChange = new ModelButton();
-            txtAnimalId = new TextBox();
-            lblAnimalId = new Label();
             btnUploadPhoto = new ModelButton();
             picAnimal = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -71,7 +69,7 @@
             // 
             cboSize.FormattingEnabled = true;
             cboSize.Items.AddRange(new object[] { "Small", "Medium\t", "Large", "Extra Large" });
-            cboSize.Location = new Point(1219, 593);
+            cboSize.Location = new Point(1220, 558);
             cboSize.Name = "cboSize";
             cboSize.Size = new Size(200, 40);
             cboSize.TabIndex = 68;
@@ -80,7 +78,7 @@
             // 
             lblCategory.AutoSize = true;
             lblCategory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCategory.Location = new Point(1058, 668);
+            lblCategory.Location = new Point(1059, 633);
             lblCategory.Name = "lblCategory";
             lblCategory.Size = new Size(118, 32);
             lblCategory.TabIndex = 67;
@@ -89,8 +87,8 @@
             // cboLocality
             // 
             cboLocality.FormattingEnabled = true;
-            cboLocality.Items.AddRange(new object[] { "Acadia\t", "Country Hills", "Downtown", "Elbow Park", "GlenBrook", "Greenview", "Highwood", "Medicine Hill", "Sage Hill", "Tuscany", "Willow Park", "Yorkville" });
-            cboLocality.Location = new Point(1219, 740);
+            cboLocality.Items.AddRange(new object[] { "Acadia", "Country Hills", "Downtown", "Elbow Park", "GlenBrook", "Greenview", "Highwood", "Medicine Hill", "Sage Hill", "Tuscany", "Willow Park", "Yorkville" });
+            cboLocality.Location = new Point(1220, 705);
             cboLocality.Name = "cboLocality";
             cboLocality.Size = new Size(200, 40);
             cboLocality.TabIndex = 66;
@@ -99,7 +97,7 @@
             // 
             cboStatus.FormattingEnabled = true;
             cboStatus.Items.AddRange(new object[] { "Available", "Adopted" });
-            cboStatus.Location = new Point(1219, 810);
+            cboStatus.Location = new Point(1220, 775);
             cboStatus.Name = "cboStatus";
             cboStatus.Size = new Size(200, 40);
             cboStatus.TabIndex = 65;
@@ -108,7 +106,7 @@
             // 
             cboCategory.FormattingEnabled = true;
             cboCategory.Items.AddRange(new object[] { "Dog", "Cat", "Rabbit" });
-            cboCategory.Location = new Point(1219, 660);
+            cboCategory.Location = new Point(1220, 625);
             cboCategory.Name = "cboCategory";
             cboCategory.Size = new Size(200, 40);
             cboCategory.TabIndex = 64;
@@ -117,28 +115,28 @@
             // 
             cboSex.FormattingEnabled = true;
             cboSex.Items.AddRange(new object[] { "Female", "Male" });
-            cboSex.Location = new Point(1219, 446);
+            cboSex.Location = new Point(1220, 411);
             cboSex.Name = "cboSex";
             cboSex.Size = new Size(200, 40);
             cboSex.TabIndex = 63;
             // 
             // txtBreed
             // 
-            txtBreed.Location = new Point(1219, 518);
+            txtBreed.Location = new Point(1220, 483);
             txtBreed.Name = "txtBreed";
             txtBreed.Size = new Size(200, 39);
             txtBreed.TabIndex = 62;
             // 
             // txtAge
             // 
-            txtAge.Location = new Point(1219, 375);
+            txtAge.Location = new Point(1220, 340);
             txtAge.Name = "txtAge";
             txtAge.Size = new Size(200, 39);
             txtAge.TabIndex = 61;
             // 
             // txtName
             // 
-            txtName.Location = new Point(1219, 304);
+            txtName.Location = new Point(1220, 269);
             txtName.Name = "txtName";
             txtName.Size = new Size(200, 39);
             txtName.TabIndex = 60;
@@ -147,7 +145,7 @@
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(1063, 820);
+            lblStatus.Location = new Point(1064, 785);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(83, 32);
             lblStatus.TabIndex = 59;
@@ -157,7 +155,7 @@
             // 
             lblLocality.AutoSize = true;
             lblLocality.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLocality.Location = new Point(1063, 748);
+            lblLocality.Location = new Point(1064, 713);
             lblLocality.Name = "lblLocality";
             lblLocality.Size = new Size(102, 32);
             lblLocality.TabIndex = 58;
@@ -167,7 +165,7 @@
             // 
             lblSize.AutoSize = true;
             lblSize.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSize.Location = new Point(1063, 596);
+            lblSize.Location = new Point(1064, 561);
             lblSize.Name = "lblSize";
             lblSize.Size = new Size(59, 32);
             lblSize.TabIndex = 57;
@@ -177,7 +175,7 @@
             // 
             lblBreed.AutoSize = true;
             lblBreed.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBreed.Location = new Point(1063, 525);
+            lblBreed.Location = new Point(1064, 490);
             lblBreed.Name = "lblBreed";
             lblBreed.Size = new Size(80, 32);
             lblBreed.TabIndex = 56;
@@ -187,7 +185,7 @@
             // 
             lblSex.AutoSize = true;
             lblSex.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSex.Location = new Point(1063, 454);
+            lblSex.Location = new Point(1064, 419);
             lblSex.Name = "lblSex";
             lblSex.Size = new Size(53, 32);
             lblSex.TabIndex = 55;
@@ -197,7 +195,7 @@
             // 
             lblAge.AutoSize = true;
             lblAge.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAge.Location = new Point(1058, 382);
+            lblAge.Location = new Point(1059, 347);
             lblAge.Name = "lblAge";
             lblAge.Size = new Size(59, 32);
             lblAge.TabIndex = 54;
@@ -207,7 +205,7 @@
             // 
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblName.Location = new Point(1058, 311);
+            lblName.Location = new Point(1059, 276);
             lblName.Name = "lblName";
             lblName.Size = new Size(88, 32);
             lblName.TabIndex = 53;
@@ -222,31 +220,13 @@
             btnSaveChange.GradientAngle = 90F;
             btnSaveChange.GradientBottomColor = Color.MediumPurple;
             btnSaveChange.GradientTopColor = Color.SlateBlue;
-            btnSaveChange.Location = new Point(1141, 903);
+            btnSaveChange.Location = new Point(1148, 884);
             btnSaveChange.Name = "btnSaveChange";
             btnSaveChange.Size = new Size(175, 53);
             btnSaveChange.TabIndex = 52;
             btnSaveChange.Text = "Save";
             btnSaveChange.UseVisualStyleBackColor = false;
             btnSaveChange.Click += btnSaveChange_Click;
-            // 
-            // txtAnimalId
-            // 
-            txtAnimalId.Location = new Point(1219, 234);
-            txtAnimalId.Name = "txtAnimalId";
-            txtAnimalId.ReadOnly = true;
-            txtAnimalId.Size = new Size(200, 39);
-            txtAnimalId.TabIndex = 71;
-            // 
-            // lblAnimalId
-            // 
-            lblAnimalId.AutoSize = true;
-            lblAnimalId.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAnimalId.Location = new Point(1053, 244);
-            lblAnimalId.Name = "lblAnimalId";
-            lblAnimalId.Size = new Size(132, 32);
-            lblAnimalId.TabIndex = 70;
-            lblAnimalId.Text = "Animal Id:";
             // 
             // btnUploadPhoto
             // 
@@ -263,6 +243,7 @@
             btnUploadPhoto.TabIndex = 72;
             btnUploadPhoto.Text = "Upload Photo";
             btnUploadPhoto.UseVisualStyleBackColor = false;
+            btnUploadPhoto.Click += btnUploadPhoto_Click;
             // 
             // picAnimal
             // 
@@ -270,6 +251,7 @@
             picAnimal.Location = new Point(246, 299);
             picAnimal.Name = "picAnimal";
             picAnimal.Size = new Size(587, 551);
+            picAnimal.SizeMode = PictureBoxSizeMode.Zoom;
             picAnimal.TabIndex = 73;
             picAnimal.TabStop = false;
             // 
@@ -293,8 +275,6 @@
             Controls.Add(pictureBox2);
             Controls.Add(picAnimal);
             Controls.Add(btnUploadPhoto);
-            Controls.Add(txtAnimalId);
-            Controls.Add(lblAnimalId);
             Controls.Add(cboSize);
             Controls.Add(lblCategory);
             Controls.Add(cboLocality);
@@ -343,8 +323,6 @@
         private Label lblAge;
         private Label lblName;
         private ModelButton btnSaveChange;
-        private TextBox txtAnimalId;
-        private Label lblAnimalId;
         private ModelButton btnUploadPhoto;
         private PictureBox picAnimal;
         private PictureBox pictureBox2;
