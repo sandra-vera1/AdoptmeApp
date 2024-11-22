@@ -27,10 +27,10 @@ namespace AdoptmeApplication
         private void LoadAllAnimals()
         {
             string query = "SELECT Ani.Animal_id, Ani.Animal_Name, Ani.Animal_Age, Ani.Animal_Sex, Ani.Animal_Img, " +
-                "Ani.Animal_Location_id, Ani.Animal_Categ_id, Cat.Animal_Categ_Name, Loc.Animal_Loc_Descrip " +
+                "Ani.Animal_Location_id, Ani.Animal_Categ_id, Cat.Animal_Categ_Name, Loc.Animal_Loc_Descrip, Ani.Animal_Status  " +
                 "FROM Animal AS Ani " +
                 "INNER JOIN Animal_Category AS Cat ON Ani.Animal_Categ_id = Cat.Animal_Categ_id " +
-                "INNER JOIN Animal_Location AS Loc ON Ani.Animal_Location_id = Loc.Animal_Loc_id"; //I added Animal_Img to validate the image
+                "INNER JOIN Animal_Location AS Loc ON Ani.Animal_Location_id = Loc.Animal_Loc_id";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -79,6 +79,7 @@ namespace AdoptmeApplication
             CreateAnimal CreateAnimalForm = new CreateAnimal();
             CreateAnimalForm.ShowDialog();
             this.Enabled = true;
+            LoadAllAnimals();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e) // Menu
@@ -87,7 +88,7 @@ namespace AdoptmeApplication
             CreateCategory CreateCategoryForm = new CreateCategory();
             CreateCategoryForm.ShowDialog();
             this.Enabled = true;
-
+            LoadAllTypeAnimals();
         }
 
         private void viewApplicationsToolStripMenuItem_Click(object sender, EventArgs e) // Menu
@@ -96,6 +97,7 @@ namespace AdoptmeApplication
             ApplicationList ApplicationListForm = new ApplicationList();
             ApplicationListForm.ShowDialog();
             this.Enabled = true;
+            LoadAllAnimals();
         }
 
         private void SelectAnimalDetails_Click(object sender, EventArgs e) // Menu
@@ -108,6 +110,7 @@ namespace AdoptmeApplication
                 AnimalDetails animalDetails = new AnimalDetails(animalId);
                 animalDetails.ShowDialog();
                 this.Enabled = true;
+                LoadAllAnimals();
             }
             else
             {

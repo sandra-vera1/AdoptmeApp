@@ -52,9 +52,10 @@
             lblUpdate.AutoSize = true;
             lblUpdate.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUpdate.ForeColor = Color.DarkGreen;
-            lblUpdate.Location = new Point(852, 157);
+            lblUpdate.Location = new Point(524, 98);
+            lblUpdate.Margin = new Padding(2, 0, 2, 0);
             lblUpdate.Name = "lblUpdate";
-            lblUpdate.Size = new Size(668, 71);
+            lblUpdate.Size = new Size(430, 46);
             lblUpdate.TabIndex = 50;
             lblUpdate.Text = "Adoption Application List";
             // 
@@ -62,9 +63,10 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(91, -60);
+            pictureBox2.Location = new Point(56, -38);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(439, 328);
+            pictureBox2.Size = new Size(270, 205);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 75;
             pictureBox2.TabStop = false;
@@ -74,11 +76,12 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(27, 394);
+            dataGridView1.Location = new Point(17, 246);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(2409, 743);
+            dataGridView1.Size = new Size(1501, 464);
             dataGridView1.TabIndex = 79;
             // 
             // btnSave
@@ -88,11 +91,12 @@
             btnSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
             btnSave.GradientAngle = 90F;
-            btnSave.GradientBottomColor = Color.MediumPurple;
-            btnSave.GradientTopColor = Color.SlateBlue;
-            btnSave.Location = new Point(2110, 335);
+            btnSave.GradientBottomColor = SystemColors.ActiveBorder;
+            btnSave.GradientTopColor = Color.LightSlateGray;
+            btnSave.Location = new Point(1298, 203);
+            btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(132, 53);
+            btnSave.Size = new Size(88, 39);
             btnSave.TabIndex = 80;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
@@ -101,18 +105,20 @@
             // lblResult
             // 
             lblResult.AutoSize = true;
-            lblResult.Location = new Point(1578, 345);
+            lblResult.Location = new Point(971, 216);
+            lblResult.Margin = new Padding(2, 0, 2, 0);
             lblResult.Name = "lblResult";
-            lblResult.Size = new Size(83, 32);
+            lblResult.Size = new Size(52, 20);
             lblResult.TabIndex = 81;
             lblResult.Text = "Result:";
             // 
             // rboPending
             // 
             rboPending.AutoSize = true;
-            rboPending.Location = new Point(1678, 343);
+            rboPending.Location = new Point(1033, 214);
+            rboPending.Margin = new Padding(2);
             rboPending.Name = "rboPending";
-            rboPending.Size = new Size(132, 36);
+            rboPending.Size = new Size(83, 24);
             rboPending.TabIndex = 82;
             rboPending.TabStop = true;
             rboPending.Text = "Pending";
@@ -121,9 +127,10 @@
             // rboApproved
             // 
             rboApproved.AutoSize = true;
-            rboApproved.Location = new Point(1816, 343);
+            rboApproved.Location = new Point(1118, 214);
+            rboApproved.Margin = new Padding(2);
             rboApproved.Name = "rboApproved";
-            rboApproved.Size = new Size(149, 36);
+            rboApproved.Size = new Size(96, 24);
             rboApproved.TabIndex = 83;
             rboApproved.TabStop = true;
             rboApproved.Text = "Approved";
@@ -132,9 +139,10 @@
             // rboDenied
             // 
             rboDenied.AutoSize = true;
-            rboDenied.Location = new Point(1971, 343);
+            rboDenied.Location = new Point(1213, 214);
+            rboDenied.Margin = new Padding(2);
             rboDenied.Name = "rboDenied";
-            rboDenied.Size = new Size(122, 36);
+            rboDenied.Size = new Size(78, 24);
             rboDenied.TabIndex = 84;
             rboDenied.TabStop = true;
             rboDenied.Text = "Denied";
@@ -147,11 +155,12 @@
             btnPetPopularity.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPetPopularity.ForeColor = Color.White;
             btnPetPopularity.GradientAngle = 90F;
-            btnPetPopularity.GradientBottomColor = Color.MediumPurple;
-            btnPetPopularity.GradientTopColor = Color.SlateBlue;
-            btnPetPopularity.Location = new Point(2259, 335);
+            btnPetPopularity.GradientBottomColor = SystemColors.ActiveBorder;
+            btnPetPopularity.GradientTopColor = Color.LightSlateGray;
+            btnPetPopularity.Location = new Point(1390, 203);
+            btnPetPopularity.Margin = new Padding(2);
             btnPetPopularity.Name = "btnPetPopularity";
-            btnPetPopularity.Size = new Size(175, 53);
+            btnPetPopularity.Size = new Size(128, 39);
             btnPetPopularity.TabIndex = 85;
             btnPetPopularity.Text = "Pet Popularity";
             btnPetPopularity.UseVisualStyleBackColor = false;
@@ -160,17 +169,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(1635, 48);
+            label1.Location = new Point(1006, 30);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(90, 32);
+            label1.Size = new Size(56, 20);
             label1.TabIndex = 86;
             label1.Text = "Search:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(1748, 45);
+            txtSearch.Location = new Point(1076, 28);
+            txtSearch.Margin = new Padding(2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(483, 39);
+            txtSearch.Size = new Size(299, 27);
             txtSearch.TabIndex = 87;
             toolTip1.SetToolTip(txtSearch, "Enter the Application Id Number");
             // 
@@ -181,11 +192,12 @@
             btnSearch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
             btnSearch.GradientAngle = 90F;
-            btnSearch.GradientBottomColor = Color.MediumPurple;
-            btnSearch.GradientTopColor = Color.SlateBlue;
-            btnSearch.Location = new Point(2286, 38);
+            btnSearch.GradientBottomColor = SystemColors.ActiveBorder;
+            btnSearch.GradientTopColor = Color.LightSlateGray;
+            btnSearch.Location = new Point(1407, 24);
+            btnSearch.Margin = new Padding(2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(132, 53);
+            btnSearch.Size = new Size(81, 33);
             btnSearch.TabIndex = 88;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
@@ -193,10 +205,10 @@
             // 
             // ApplicationList
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
-            ClientSize = new Size(2485, 1278);
+            ClientSize = new Size(1529, 799);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
             Controls.Add(label1);
@@ -209,9 +221,10 @@
             Controls.Add(dataGridView1);
             Controls.Add(pictureBox2);
             Controls.Add(lblUpdate);
+            Margin = new Padding(2);
             Name = "ApplicationList";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ApplicationList";
+            Text = "Application List";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

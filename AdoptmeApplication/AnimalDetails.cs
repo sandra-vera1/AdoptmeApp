@@ -68,6 +68,15 @@ namespace AdoptmeApplication
                             {
                                 pictureBox1.Image = null;
                             }
+
+                            if (reader["Animal_Status"].ToString() == "Adopted")
+                            {
+                                btnAdoptMe.Visible = false;
+                            }
+                            else
+                            {
+                                btnAdoptMe.Visible = true;
+                            }
                         }
                     }
                 }
@@ -76,14 +85,28 @@ namespace AdoptmeApplication
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            this.Enabled = false;
             EditAnimal UpdateAnimalform = new EditAnimal(animalId);
             UpdateAnimalform.Show();
+            AdoptionApplication AdoptionApplicationform = (AdoptionApplication)Application.OpenForms["AdoptionApplication"];  // Get the open instance of Form by name
+            if (AdoptionApplicationform != null)
+            {
+                AdoptionApplicationform.Close();  // Close Form
+            }
+            this.Enabled = true;
         }
 
         private void btnAdoptMe_Click(object sender, EventArgs e)
         {
-            AdoptionApplication AdoptionApplicationform = new AdoptionApplication();
+            this.Enabled = false;
+            AdoptionApplication AdoptionApplicationform = new AdoptionApplication(animalId);
             AdoptionApplicationform.Show();
+            EditAnimal UpdateAnimalform = (EditAnimal)Application.OpenForms["EditAnimal"];  // Get the open instance of Form by name
+            if (UpdateAnimalform != null)
+            {
+                UpdateAnimalform.Close();  // Close Form
+            }
+            this.Enabled = true;
         }
     }
 }

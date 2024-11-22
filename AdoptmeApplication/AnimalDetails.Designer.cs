@@ -60,18 +60,20 @@
             cboSize.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cboSize.FormattingEnabled = true;
             cboSize.Items.AddRange(new object[] { "Small", "Medium\t", "Large", "Extra Large" });
-            cboSize.Location = new Point(1223, 524);
+            cboSize.Location = new Point(753, 328);
+            cboSize.Margin = new Padding(2, 2, 2, 2);
             cboSize.Name = "cboSize";
-            cboSize.Size = new Size(200, 40);
+            cboSize.Size = new Size(125, 28);
             cboSize.TabIndex = 47;
             // 
             // lblCategory
             // 
             lblCategory.AutoSize = true;
             lblCategory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCategory.Location = new Point(1062, 599);
+            lblCategory.Location = new Point(654, 374);
+            lblCategory.Margin = new Padding(2, 0, 2, 0);
             lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(118, 32);
+            lblCategory.Size = new Size(73, 20);
             lblCategory.TabIndex = 46;
             lblCategory.Text = "Category";
             // 
@@ -81,9 +83,10 @@
             cboLocality.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cboLocality.FormattingEnabled = true;
             cboLocality.Items.AddRange(new object[] { "Acadia\t", "Country Hills", "Downtown", "Elbow Park", "GlenBrook", "Greenview", "Highwood", "Medicine Hill", "Sage Hill", "Tuscany", "Willow Park", "Yorkville" });
-            cboLocality.Location = new Point(1223, 671);
+            cboLocality.Location = new Point(753, 419);
+            cboLocality.Margin = new Padding(2, 2, 2, 2);
             cboLocality.Name = "cboLocality";
-            cboLocality.Size = new Size(200, 40);
+            cboLocality.Size = new Size(125, 28);
             cboLocality.TabIndex = 45;
             // 
             // cboStatus
@@ -92,9 +95,10 @@
             cboStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cboStatus.FormattingEnabled = true;
             cboStatus.Items.AddRange(new object[] { "Available", "Adopted" });
-            cboStatus.Location = new Point(1223, 741);
+            cboStatus.Location = new Point(753, 463);
+            cboStatus.Margin = new Padding(2, 2, 2, 2);
             cboStatus.Name = "cboStatus";
-            cboStatus.Size = new Size(200, 40);
+            cboStatus.Size = new Size(125, 28);
             cboStatus.TabIndex = 44;
             // 
             // cboCategory
@@ -103,9 +107,10 @@
             cboCategory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cboCategory.FormattingEnabled = true;
             cboCategory.Items.AddRange(new object[] { "Dog", "Cat", "Rabbit" });
-            cboCategory.Location = new Point(1223, 591);
+            cboCategory.Location = new Point(753, 369);
+            cboCategory.Margin = new Padding(2, 2, 2, 2);
             cboCategory.Name = "cboCategory";
-            cboCategory.Size = new Size(200, 40);
+            cboCategory.Size = new Size(125, 28);
             cboCategory.TabIndex = 43;
             // 
             // cboSex
@@ -114,45 +119,50 @@
             cboSex.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cboSex.FormattingEnabled = true;
             cboSex.Items.AddRange(new object[] { "Female", "Male" });
-            cboSex.Location = new Point(1223, 377);
+            cboSex.Location = new Point(753, 236);
+            cboSex.Margin = new Padding(2, 2, 2, 2);
             cboSex.Name = "cboSex";
-            cboSex.Size = new Size(200, 40);
+            cboSex.Size = new Size(125, 28);
             cboSex.TabIndex = 42;
             // 
             // txtBreed
             // 
             txtBreed.Enabled = false;
             txtBreed.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtBreed.Location = new Point(1223, 449);
+            txtBreed.Location = new Point(753, 281);
+            txtBreed.Margin = new Padding(2, 2, 2, 2);
             txtBreed.Name = "txtBreed";
-            txtBreed.Size = new Size(200, 39);
+            txtBreed.Size = new Size(125, 27);
             txtBreed.TabIndex = 41;
             // 
             // txtAge
             // 
             txtAge.Enabled = false;
             txtAge.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtAge.Location = new Point(1223, 306);
+            txtAge.Location = new Point(753, 191);
+            txtAge.Margin = new Padding(2, 2, 2, 2);
             txtAge.Name = "txtAge";
-            txtAge.Size = new Size(200, 39);
+            txtAge.Size = new Size(125, 27);
             txtAge.TabIndex = 40;
             // 
             // txtName
             // 
             txtName.Enabled = false;
             txtName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtName.Location = new Point(1223, 235);
+            txtName.Location = new Point(753, 147);
+            txtName.Margin = new Padding(2, 2, 2, 2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(200, 39);
+            txtName.Size = new Size(125, 27);
             txtName.TabIndex = 39;
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(1067, 751);
+            lblStatus.Location = new Point(657, 469);
+            lblStatus.Margin = new Padding(2, 0, 2, 0);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(83, 32);
+            lblStatus.Size = new Size(53, 20);
             lblStatus.TabIndex = 37;
             lblStatus.Text = "Status";
             // 
@@ -160,9 +170,10 @@
             // 
             lblLocality.AutoSize = true;
             lblLocality.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLocality.Location = new Point(1067, 679);
+            lblLocality.Location = new Point(657, 424);
+            lblLocality.Margin = new Padding(2, 0, 2, 0);
             lblLocality.Name = "lblLocality";
-            lblLocality.Size = new Size(102, 32);
+            lblLocality.Size = new Size(63, 20);
             lblLocality.TabIndex = 36;
             lblLocality.Text = "Locality";
             // 
@@ -170,9 +181,10 @@
             // 
             lblSize.AutoSize = true;
             lblSize.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSize.Location = new Point(1067, 527);
+            lblSize.Location = new Point(657, 329);
+            lblSize.Margin = new Padding(2, 0, 2, 0);
             lblSize.Name = "lblSize";
-            lblSize.Size = new Size(59, 32);
+            lblSize.Size = new Size(36, 20);
             lblSize.TabIndex = 35;
             lblSize.Text = "Size";
             // 
@@ -180,9 +192,10 @@
             // 
             lblBreed.AutoSize = true;
             lblBreed.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBreed.Location = new Point(1067, 456);
+            lblBreed.Location = new Point(657, 285);
+            lblBreed.Margin = new Padding(2, 0, 2, 0);
             lblBreed.Name = "lblBreed";
-            lblBreed.Size = new Size(80, 32);
+            lblBreed.Size = new Size(50, 20);
             lblBreed.TabIndex = 34;
             lblBreed.Text = "Breed";
             // 
@@ -190,9 +203,10 @@
             // 
             lblSex.AutoSize = true;
             lblSex.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSex.Location = new Point(1067, 385);
+            lblSex.Location = new Point(657, 241);
+            lblSex.Margin = new Padding(2, 0, 2, 0);
             lblSex.Name = "lblSex";
-            lblSex.Size = new Size(53, 32);
+            lblSex.Size = new Size(33, 20);
             lblSex.TabIndex = 33;
             lblSex.Text = "Sex";
             // 
@@ -200,9 +214,10 @@
             // 
             lblAge.AutoSize = true;
             lblAge.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAge.Location = new Point(1062, 313);
+            lblAge.Location = new Point(654, 196);
+            lblAge.Margin = new Padding(2, 0, 2, 0);
             lblAge.Name = "lblAge";
-            lblAge.Size = new Size(59, 32);
+            lblAge.Size = new Size(37, 20);
             lblAge.TabIndex = 32;
             lblAge.Text = "Age";
             // 
@@ -210,9 +225,10 @@
             // 
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblName.Location = new Point(1062, 242);
+            lblName.Location = new Point(654, 151);
+            lblName.Margin = new Padding(2, 0, 2, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(88, 32);
+            lblName.Size = new Size(55, 20);
             lblName.TabIndex = 31;
             lblName.Text = "Name:";
             // 
@@ -223,11 +239,12 @@
             btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = Color.White;
             btnUpdate.GradientAngle = 90F;
-            btnUpdate.GradientBottomColor = Color.MediumPurple;
-            btnUpdate.GradientTopColor = Color.SlateBlue;
-            btnUpdate.Location = new Point(1037, 874);
+            btnUpdate.GradientBottomColor = SystemColors.ActiveBorder;
+            btnUpdate.GradientTopColor = Color.LightSlateGray;
+            btnUpdate.Location = new Point(638, 546);
+            btnUpdate.Margin = new Padding(2, 2, 2, 2);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(175, 53);
+            btnUpdate.Size = new Size(108, 33);
             btnUpdate.TabIndex = 29;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -238,9 +255,10 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.DarkGreen;
-            label10.Location = new Point(553, 40);
+            label10.Location = new Point(340, 25);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(676, 71);
+            label10.Size = new Size(433, 46);
             label10.TabIndex = 48;
             label10.Text = "Pet Information Overview";
             // 
@@ -248,9 +266,10 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(63, -65);
+            pictureBox2.Location = new Point(39, -41);
+            pictureBox2.Margin = new Padding(2, 2, 2, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(337, 274);
+            pictureBox2.Size = new Size(207, 171);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 49;
             pictureBox2.TabStop = false;
@@ -258,9 +277,10 @@
             // pictureBox1
             // 
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(228, 233);
+            pictureBox1.Location = new Point(140, 146);
+            pictureBox1.Margin = new Padding(2, 2, 2, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(587, 551);
+            pictureBox1.Size = new Size(362, 345);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 50;
             pictureBox1.TabStop = false;
@@ -272,11 +292,12 @@
             btnAdoptMe.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdoptMe.ForeColor = Color.White;
             btnAdoptMe.GradientAngle = 90F;
-            btnAdoptMe.GradientBottomColor = Color.MediumPurple;
-            btnAdoptMe.GradientTopColor = Color.SlateBlue;
-            btnAdoptMe.Location = new Point(1272, 874);
+            btnAdoptMe.GradientBottomColor = SystemColors.ActiveBorder;
+            btnAdoptMe.GradientTopColor = Color.LightSlateGray;
+            btnAdoptMe.Location = new Point(783, 546);
+            btnAdoptMe.Margin = new Padding(2, 2, 2, 2);
             btnAdoptMe.Name = "btnAdoptMe";
-            btnAdoptMe.Size = new Size(175, 53);
+            btnAdoptMe.Size = new Size(108, 33);
             btnAdoptMe.TabIndex = 51;
             btnAdoptMe.Text = "Adopt me";
             btnAdoptMe.UseVisualStyleBackColor = false;
@@ -284,10 +305,10 @@
             // 
             // AnimalDetails
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
-            ClientSize = new Size(1676, 993);
+            ClientSize = new Size(1031, 621);
             Controls.Add(btnAdoptMe);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
@@ -309,6 +330,7 @@
             Controls.Add(lblAge);
             Controls.Add(lblName);
             Controls.Add(btnUpdate);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "AnimalDetails";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AnimalDetails";

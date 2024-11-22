@@ -49,7 +49,7 @@
             label1 = new Label();
             txtPhoneNumber = new TextBox();
             lblPhoneNumber = new Label();
-            textBox1 = new TextBox();
+            txtEmail = new TextBox();
             lblEmail = new Label();
             label2 = new Label();
             cboNumChildren = new ComboBox();
@@ -232,8 +232,8 @@
             btnSendApplication.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSendApplication.ForeColor = Color.White;
             btnSendApplication.GradientAngle = 90F;
-            btnSendApplication.GradientBottomColor = Color.MediumPurple;
-            btnSendApplication.GradientTopColor = Color.SlateBlue;
+            btnSendApplication.GradientBottomColor = SystemColors.ActiveBorder;
+            btnSendApplication.GradientTopColor = Color.LightSlateGray;
             btnSendApplication.Location = new Point(263, 668);
             btnSendApplication.Margin = new Padding(2);
             btnSendApplication.Name = "btnSendApplication";
@@ -241,6 +241,7 @@
             btnSendApplication.TabIndex = 94;
             btnSendApplication.Text = "Send";
             btnSendApplication.UseVisualStyleBackColor = false;
+            btnSendApplication.Click += btnSendApplication_Click;
             // 
             // label1
             // 
@@ -273,13 +274,13 @@
             lblPhoneNumber.TabIndex = 96;
             lblPhoneNumber.Text = "Phone Number";
             // 
-            // textBox1
+            // txtEmail
             // 
-            textBox1.Location = new Point(392, 283);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(266, 27);
-            textBox1.TabIndex = 99;
+            txtEmail.Location = new Point(392, 283);
+            txtEmail.Margin = new Padding(2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(266, 27);
+            txtEmail.TabIndex = 99;
             // 
             // lblEmail
             // 
@@ -346,7 +347,7 @@
             Controls.Add(cboNumPets);
             Controls.Add(cboNumChildren);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtEmail);
             Controls.Add(lblEmail);
             Controls.Add(txtPhoneNumber);
             Controls.Add(lblPhoneNumber);
@@ -401,7 +402,7 @@
         private Label label1;
         private TextBox txtPhoneNumber;
         private Label lblPhoneNumber;
-        private TextBox textBox1;
+        private TextBox txtEmail;
         private Label lblEmail;
         private Label label2;
         private ComboBox cboNumChildren;

@@ -119,7 +119,7 @@
             // 
             lblAdoptionApplication.AutoSize = true;
             lblAdoptionApplication.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAdoptionApplication.ForeColor = Color.DarkGreen;
+            lblAdoptionApplication.ForeColor = Color.Black;
             lblAdoptionApplication.Location = new Point(21, 148);
             lblAdoptionApplication.Margin = new Padding(2, 0, 2, 0);
             lblAdoptionApplication.Name = "lblAdoptionApplication";
@@ -220,7 +220,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.DarkGreen;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(316, 174);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
@@ -243,7 +243,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.DarkGreen;
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(390, 143);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
@@ -255,7 +255,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.DarkGreen;
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(536, 143);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";

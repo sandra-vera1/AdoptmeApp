@@ -11,8 +11,8 @@ namespace AdoptmeApplication
     {
         private int borderRadius = 30;
         private float gradientAngle = 90F;
-        private Color gradientTopColor = Color.SlateBlue;
-        private Color gradientBottomColor = Color.MediumPurple;
+        private Color gradientTopColor = Color.LightSlateGray;
+        private Color gradientBottomColor = Color.Gray;
 
         public ModelButton()
         {

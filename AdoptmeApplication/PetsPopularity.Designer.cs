@@ -41,11 +41,12 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(81, 159);
+            dataGridView1.Location = new Point(41, 127);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(671, 425);
+            dataGridView1.Size = new Size(452, 266);
             dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -53,9 +54,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold);
             label1.ForeColor = Color.DarkGreen;
-            label1.Location = new Point(193, 65);
+            label1.Location = new Point(160, 43);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(497, 50);
+            label1.Size = new Size(325, 32);
             label1.TabIndex = 1;
             label1.Text = "Adoption Popularity by Pet";
             // 
@@ -63,25 +65,27 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(37, -7);
+            pictureBox2.Location = new Point(23, -4);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(150, 160);
+            pictureBox2.Size = new Size(108, 109);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 75;
             pictureBox2.TabStop = false;
             // 
             // PetsPopularity
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
-            ClientSize = new Size(857, 663);
+            ClientSize = new Size(543, 423);
             Controls.Add(pictureBox2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2);
             Name = "PetsPopularity";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PetsPopularity";
+            Text = "Pets Popularity";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

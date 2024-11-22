@@ -87,8 +87,8 @@
             btnSaveAnimalCategory.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSaveAnimalCategory.ForeColor = Color.White;
             btnSaveAnimalCategory.GradientAngle = 90F;
-            btnSaveAnimalCategory.GradientBottomColor = Color.MediumPurple;
-            btnSaveAnimalCategory.GradientTopColor = Color.SlateBlue;
+            btnSaveAnimalCategory.GradientBottomColor = SystemColors.ActiveBorder;
+            btnSaveAnimalCategory.GradientTopColor = Color.LightSlateGray;
             btnSaveAnimalCategory.Location = new Point(195, 182);
             btnSaveAnimalCategory.Margin = new Padding(2);
             btnSaveAnimalCategory.Name = "btnSaveAnimalCategory";
@@ -96,6 +96,7 @@
             btnSaveAnimalCategory.TabIndex = 104;
             btnSaveAnimalCategory.Text = "Save";
             btnSaveAnimalCategory.UseVisualStyleBackColor = false;
+            btnSaveAnimalCategory.Click += btnSaveAnimalCategory_Click;
             // 
             // CreateCategory
             // 
