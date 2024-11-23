@@ -61,7 +61,7 @@
             cboSize.FormattingEnabled = true;
             cboSize.Items.AddRange(new object[] { "Small", "Medium\t", "Large", "Extra Large" });
             cboSize.Location = new Point(753, 328);
-            cboSize.Margin = new Padding(2, 2, 2, 2);
+            cboSize.Margin = new Padding(2);
             cboSize.Name = "cboSize";
             cboSize.Size = new Size(125, 28);
             cboSize.TabIndex = 47;
@@ -84,7 +84,7 @@
             cboLocality.FormattingEnabled = true;
             cboLocality.Items.AddRange(new object[] { "Acadia\t", "Country Hills", "Downtown", "Elbow Park", "GlenBrook", "Greenview", "Highwood", "Medicine Hill", "Sage Hill", "Tuscany", "Willow Park", "Yorkville" });
             cboLocality.Location = new Point(753, 419);
-            cboLocality.Margin = new Padding(2, 2, 2, 2);
+            cboLocality.Margin = new Padding(2);
             cboLocality.Name = "cboLocality";
             cboLocality.Size = new Size(125, 28);
             cboLocality.TabIndex = 45;
@@ -96,7 +96,7 @@
             cboStatus.FormattingEnabled = true;
             cboStatus.Items.AddRange(new object[] { "Available", "Adopted" });
             cboStatus.Location = new Point(753, 463);
-            cboStatus.Margin = new Padding(2, 2, 2, 2);
+            cboStatus.Margin = new Padding(2);
             cboStatus.Name = "cboStatus";
             cboStatus.Size = new Size(125, 28);
             cboStatus.TabIndex = 44;
@@ -108,7 +108,7 @@
             cboCategory.FormattingEnabled = true;
             cboCategory.Items.AddRange(new object[] { "Dog", "Cat", "Rabbit" });
             cboCategory.Location = new Point(753, 369);
-            cboCategory.Margin = new Padding(2, 2, 2, 2);
+            cboCategory.Margin = new Padding(2);
             cboCategory.Name = "cboCategory";
             cboCategory.Size = new Size(125, 28);
             cboCategory.TabIndex = 43;
@@ -120,7 +120,7 @@
             cboSex.FormattingEnabled = true;
             cboSex.Items.AddRange(new object[] { "Female", "Male" });
             cboSex.Location = new Point(753, 236);
-            cboSex.Margin = new Padding(2, 2, 2, 2);
+            cboSex.Margin = new Padding(2);
             cboSex.Name = "cboSex";
             cboSex.Size = new Size(125, 28);
             cboSex.TabIndex = 42;
@@ -130,7 +130,7 @@
             txtBreed.Enabled = false;
             txtBreed.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtBreed.Location = new Point(753, 281);
-            txtBreed.Margin = new Padding(2, 2, 2, 2);
+            txtBreed.Margin = new Padding(2);
             txtBreed.Name = "txtBreed";
             txtBreed.Size = new Size(125, 27);
             txtBreed.TabIndex = 41;
@@ -140,7 +140,7 @@
             txtAge.Enabled = false;
             txtAge.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtAge.Location = new Point(753, 191);
-            txtAge.Margin = new Padding(2, 2, 2, 2);
+            txtAge.Margin = new Padding(2);
             txtAge.Name = "txtAge";
             txtAge.Size = new Size(125, 27);
             txtAge.TabIndex = 40;
@@ -150,7 +150,7 @@
             txtName.Enabled = false;
             txtName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtName.Location = new Point(753, 147);
-            txtName.Margin = new Padding(2, 2, 2, 2);
+            txtName.Margin = new Padding(2);
             txtName.Name = "txtName";
             txtName.Size = new Size(125, 27);
             txtName.TabIndex = 39;
@@ -242,7 +242,7 @@
             btnUpdate.GradientBottomColor = SystemColors.ActiveBorder;
             btnUpdate.GradientTopColor = Color.LightSlateGray;
             btnUpdate.Location = new Point(638, 546);
-            btnUpdate.Margin = new Padding(2, 2, 2, 2);
+            btnUpdate.Margin = new Padding(2);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(108, 33);
             btnUpdate.TabIndex = 29;
@@ -267,7 +267,7 @@
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(39, -41);
-            pictureBox2.Margin = new Padding(2, 2, 2, 2);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(207, 171);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -278,7 +278,7 @@
             // 
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Location = new Point(140, 146);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(362, 345);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -295,7 +295,7 @@
             btnAdoptMe.GradientBottomColor = SystemColors.ActiveBorder;
             btnAdoptMe.GradientTopColor = Color.LightSlateGray;
             btnAdoptMe.Location = new Point(783, 546);
-            btnAdoptMe.Margin = new Padding(2, 2, 2, 2);
+            btnAdoptMe.Margin = new Padding(2);
             btnAdoptMe.Name = "btnAdoptMe";
             btnAdoptMe.Size = new Size(108, 33);
             btnAdoptMe.TabIndex = 51;
@@ -330,10 +330,11 @@
             Controls.Add(lblAge);
             Controls.Add(lblName);
             Controls.Add(btnUpdate);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "AnimalDetails";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AnimalDetails";
+            Load += Form_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

@@ -2,6 +2,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using System.Xml.Linq;
 
 namespace AdoptmeApplication
 {
@@ -299,6 +301,66 @@ namespace AdoptmeApplication
         /// End ComboBox about Type of animals
         /// </summary>
 
+        public static class SessionAdministrator
+        {
+            public static string UserName { get; set; }
+            public static bool IsLoggedIn { get; set; }
+        }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string Username = txtUsername.Text;
+            string Password = txtPassword.Text;
+
+            string query = @"SELECT Shelter_Administrator.Username, Shelter_Administrator.Password 
+            FROM Shelter_Administrator 
+            WHERE Shelter_Administrator.Username = @userName AND Shelter_Administrator.Password = @password";
+
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@userName", Username);
+                    command.Parameters.AddWithValue("@password", Password);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+
+                            if (reader["Username"] != DBNull.Value && reader["Password"] != DBNull.Value)
+                            {
+
+                                SessionAdministrator.IsLoggedIn = true;
+                                MessageBox.Show("Login successfull. Welcome Shelter Administrator!");
+
+                                createAnimalToolStripMenuItem.Visible = true;
+                                CreateCategorytoolStripMenuItem.Visible = true;
+                                ViewApplicationsToolStripMenuItem.Visible = true;
+                                ButtonLogout.Visible = true;
+                            }
+                            else
+                            {
+                                createAnimalToolStripMenuItem.Visible = false;
+                                CreateCategorytoolStripMenuItem.Visible = false;
+                                ViewApplicationsToolStripMenuItem.Visible = false;
+                                ButtonLogout.Visible = false;
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ButtonLogout_Click(object sender, EventArgs e)
+        {
+            SessionAdministrator.UserName = string.Empty;
+            SessionAdministrator.IsLoggedIn= false;
+            MessageBox.Show("You have been logged out. Adopt a Pet System will be close.");
+            this.Close();
+        }
     }
 }

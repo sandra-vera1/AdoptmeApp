@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static AdoptmeApplication.Main;
 
 namespace AdoptmeApplication
 {
@@ -24,6 +25,7 @@ namespace AdoptmeApplication
             InitializeComponent();
             this.animalId = animalId;
             LoadAnimalDetails();
+
         }
 
         private void LoadAnimalDetails()
@@ -107,6 +109,21 @@ namespace AdoptmeApplication
                 UpdateAnimalform.Close();  // Close Form
             }
             this.Enabled = true;
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+            
+            if (SessionAdministrator.IsLoggedIn)
+            {
+                btnUpdate.Visible = true;
+                btnAdoptMe.Visible = true;
+            }
+            else
+            {
+                btnUpdate.Visible = false;
+                btnAdoptMe.Visible = true;
+            }
         }
     }
 }

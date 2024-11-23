@@ -31,11 +31,11 @@ namespace AdoptmeApplication
             string Address = txtAddress.Text;
             string PhoneNumber = txtPhoneNumber.Text;
             string Email = txtEmail.Text;
-            string NumAdult = cboNumAdult.Text; ///pending validate 
-            string NumChildren = cboNumChildren.Text;  ///pending validate 
-            string NumPets = cboNumPets.Text; ///pending validate 
-            string TimeHome = cboTimeHome.Text; ///pending validate 
-            string OutdoorAv = cboOutdoorAv.Text; ///pending validate
+            string NumAdult = cboNumAdult.Text; 
+            string NumChildren = cboNumChildren.Text;  
+            string NumPets = cboNumPets.Text;
+            string TimeHome = cboTimeHome.Text; 
+            string OutdoorAv = cboOutdoorAv.Text;
             string Status = "Pending";
 
             if (string.IsNullOrWhiteSpace(FullName))

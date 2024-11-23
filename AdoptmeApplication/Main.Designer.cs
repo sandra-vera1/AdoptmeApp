@@ -37,12 +37,12 @@
             txtPassword = new TextBox();
             lblAdoptionApplication = new Label();
             panel1 = new Panel();
-            modelButton1 = new ModelButton();
+            ButtonLogout = new ModelButton();
             pictureBox1 = new PictureBox();
             menuStrip1 = new MenuStrip();
             createAnimalToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripMenuItem();
-            viewApplicationsToolStripMenuItem = new ToolStripMenuItem();
+            CreateCategorytoolStripMenuItem = new ToolStripMenuItem();
+            ViewApplicationsToolStripMenuItem = new ToolStripMenuItem();
             cboLocality = new ComboBox();
             label4 = new Label();
             cboTypeAnimal = new ComboBox();
@@ -51,7 +51,7 @@
             dataGridView1 = new DataGridView();
             modelButton2 = new ModelButton();
             imageList1 = new ImageList(components);
-            modelButton3 = new ModelButton();
+            BtnDetail = new ModelButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -106,11 +106,13 @@
             btnLogin.TabIndex = 95;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // txtPassword
             // 
             txtPassword.Location = new Point(633, 19);
             txtPassword.Margin = new Padding(2);
+            txtPassword.MaxLength = 50;
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(171, 27);
             txtPassword.TabIndex = 96;
@@ -130,7 +132,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Tan;
-            panel1.Controls.Add(modelButton1);
+            panel1.Controls.Add(ButtonLogout);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(lblUsername);
@@ -144,22 +146,24 @@
             panel1.Size = new Size(1070, 135);
             panel1.TabIndex = 99;
             // 
-            // modelButton1
+            // ButtonLogout
             // 
-            modelButton1.BackColor = Color.White;
-            modelButton1.BorderRadius = 41;
-            modelButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            modelButton1.ForeColor = Color.White;
-            modelButton1.GradientAngle = 90F;
-            modelButton1.GradientBottomColor = SystemColors.ActiveBorder;
-            modelButton1.GradientTopColor = Color.LightSlateGray;
-            modelButton1.Location = new Point(939, 10);
-            modelButton1.Margin = new Padding(2);
-            modelButton1.Name = "modelButton1";
-            modelButton1.Size = new Size(108, 43);
-            modelButton1.TabIndex = 101;
-            modelButton1.Text = "Logout";
-            modelButton1.UseVisualStyleBackColor = false;
+            ButtonLogout.BackColor = Color.White;
+            ButtonLogout.BorderRadius = 41;
+            ButtonLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonLogout.ForeColor = Color.White;
+            ButtonLogout.GradientAngle = 90F;
+            ButtonLogout.GradientBottomColor = SystemColors.ActiveBorder;
+            ButtonLogout.GradientTopColor = Color.LightSlateGray;
+            ButtonLogout.Location = new Point(939, 10);
+            ButtonLogout.Margin = new Padding(2);
+            ButtonLogout.Name = "ButtonLogout";
+            ButtonLogout.Size = new Size(108, 43);
+            ButtonLogout.TabIndex = 101;
+            ButtonLogout.Text = "Logout";
+            ButtonLogout.UseVisualStyleBackColor = false;
+            ButtonLogout.Visible = false;
+            ButtonLogout.Click += ButtonLogout_Click;
             // 
             // pictureBox1
             // 
@@ -177,10 +181,10 @@
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { createAnimalToolStripMenuItem, toolStripMenuItem1, viewApplicationsToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { createAnimalToolStripMenuItem, CreateCategorytoolStripMenuItem, ViewApplicationsToolStripMenuItem });
             menuStrip1.Location = new Point(252, 94);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(469, 31);
+            menuStrip1.Size = new Size(202, 24);
             menuStrip1.TabIndex = 109;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -189,21 +193,24 @@
             createAnimalToolStripMenuItem.Name = "createAnimalToolStripMenuItem";
             createAnimalToolStripMenuItem.Size = new Size(138, 27);
             createAnimalToolStripMenuItem.Text = "Create Animal";
+            createAnimalToolStripMenuItem.Visible = false;
             createAnimalToolStripMenuItem.Click += createAnimalToolStripMenuItem_Click;
             // 
-            // toolStripMenuItem1
+            // CreateCategorytoolStripMenuItem
             // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(155, 27);
-            toolStripMenuItem1.Text = "Create Category";
-            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
+            CreateCategorytoolStripMenuItem.Name = "CreateCategorytoolStripMenuItem";
+            CreateCategorytoolStripMenuItem.Size = new Size(155, 27);
+            CreateCategorytoolStripMenuItem.Text = "Create Category";
+            CreateCategorytoolStripMenuItem.Visible = false;
+            CreateCategorytoolStripMenuItem.Click += toolStripMenuItem1_Click;
             // 
-            // viewApplicationsToolStripMenuItem
+            // ViewApplicationsToolStripMenuItem
             // 
-            viewApplicationsToolStripMenuItem.Name = "viewApplicationsToolStripMenuItem";
-            viewApplicationsToolStripMenuItem.Size = new Size(168, 27);
-            viewApplicationsToolStripMenuItem.Text = "View Applications";
-            viewApplicationsToolStripMenuItem.Click += viewApplicationsToolStripMenuItem_Click;
+            ViewApplicationsToolStripMenuItem.Name = "ViewApplicationsToolStripMenuItem";
+            ViewApplicationsToolStripMenuItem.Size = new Size(168, 27);
+            ViewApplicationsToolStripMenuItem.Text = "View Applications";
+            ViewApplicationsToolStripMenuItem.Visible = false;
+            ViewApplicationsToolStripMenuItem.Click += viewApplicationsToolStripMenuItem_Click;
             // 
             // cboLocality
             // 
@@ -307,23 +314,23 @@
             imageList1.Images.SetKeyName(4, "rabbit.jpg");
             imageList1.Images.SetKeyName(5, "snake.jpg");
             // 
-            // modelButton3
+            // BtnDetail
             // 
-            modelButton3.BackColor = Color.White;
-            modelButton3.BorderRadius = 41;
-            modelButton3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            modelButton3.ForeColor = Color.White;
-            modelButton3.GradientAngle = 90F;
-            modelButton3.GradientBottomColor = SystemColors.ActiveBorder;
-            modelButton3.GradientTopColor = Color.LightSlateGray;
-            modelButton3.Location = new Point(932, 155);
-            modelButton3.Margin = new Padding(2);
-            modelButton3.Name = "modelButton3";
-            modelButton3.Size = new Size(108, 43);
-            modelButton3.TabIndex = 111;
-            modelButton3.Text = "Detail";
-            modelButton3.UseVisualStyleBackColor = false;
-            modelButton3.Click += SelectAnimalDetails_Click;
+            BtnDetail.BackColor = Color.White;
+            BtnDetail.BorderRadius = 41;
+            BtnDetail.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnDetail.ForeColor = Color.White;
+            BtnDetail.GradientAngle = 90F;
+            BtnDetail.GradientBottomColor = SystemColors.ActiveBorder;
+            BtnDetail.GradientTopColor = Color.LightSlateGray;
+            BtnDetail.Location = new Point(932, 155);
+            BtnDetail.Margin = new Padding(2);
+            BtnDetail.Name = "BtnDetail";
+            BtnDetail.Size = new Size(108, 43);
+            BtnDetail.TabIndex = 111;
+            BtnDetail.Text = "Detail";
+            BtnDetail.UseVisualStyleBackColor = false;
+            BtnDetail.Click += SelectAnimalDetails_Click;
             // 
             // Main
             // 
@@ -331,7 +338,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(1070, 994);
-            Controls.Add(modelButton3);
+            Controls.Add(BtnDetail);
             Controls.Add(modelButton2);
             Controls.Add(dataGridView1);
             Controls.Add(label6);
@@ -365,7 +372,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Panel panel4;
-        private ModelButton modelButton1;
+        private ModelButton ButtonLogout;
         private ComboBox cboLocality;
         private Label label4;
         private ComboBox cboTypeAnimal;
@@ -374,10 +381,10 @@
         private DataGridView dataGridView1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem createAnimalToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem viewApplicationsToolStripMenuItem;
+        private ToolStripMenuItem CreateCategorytoolStripMenuItem;
+        private ToolStripMenuItem ViewApplicationsToolStripMenuItem;
         private ModelButton modelButton2;
         private ImageList imageList1;
-        private ModelButton modelButton3;
+        private ModelButton BtnDetail;
     }
 }
