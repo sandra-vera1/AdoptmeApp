@@ -14,6 +14,7 @@ namespace AdoptmeApplication
 {
     public partial class CreateAnimal : Form
     {
+        private ErrorProvider errorProvider = new ErrorProvider();
         //private string connectionStringPaula = "Data Source = PAULAGO\SQLEXPRESS01; Initial Catalog = AdoptmeApp; Integrated Security = True";
         string connectionString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
         public CreateAnimal()
@@ -29,10 +30,10 @@ namespace AdoptmeApplication
             string AnimalSex = cboSex.Text;
             string AnimalBreed = txtBreed.Text;
             string AnimalSize = cboSize.Text;
-            string AnimalCategory = cboCategory.Text; // Description
-            string AnimalLocality = cboLocality.Text; // Description
+            string AnimalCategory = cboCategory.Text; 
+            string AnimalLocality = cboLocality.Text; 
             string AnimalStatus = cboStatus.Text;
-            ErrorProvider errorProvider = new ErrorProvider();
+            
 
 
             if (string.IsNullOrWhiteSpace(AnimalName))
@@ -132,6 +133,16 @@ namespace AdoptmeApplication
                         cboLocality.Text = "";
                         cboStatus.Text = "";
                         picAnimal.Image = null;
+
+                        errorProvider.SetError(txtName, null);
+                        errorProvider.SetError(txtAge, null);
+                        errorProvider.SetError(cboSex, null);
+                        errorProvider.SetError(txtBreed, null);
+                        errorProvider.SetError(cboSize, null);
+                        errorProvider.SetError(cboCategory, null);
+                        errorProvider.SetError(cboLocality, null);
+                        errorProvider.SetError(cboStatus, null);
+                        errorProvider.SetError(picAnimal, null);
                     }
                 }
                 catch (Exception ex)

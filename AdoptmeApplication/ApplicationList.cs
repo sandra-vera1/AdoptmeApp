@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AdoptmeApplication
 {
@@ -100,7 +101,7 @@ namespace AdoptmeApplication
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                int applicationId = Convert.ToInt32(selectedRow.Cells["App_Animal_id"].Value);
+                int applicationId = Convert.ToInt32(selectedRow.Cells["App_Id"].Value);
 
                 string newStatus = "";
                 if (rboPending.Checked)
@@ -121,7 +122,7 @@ namespace AdoptmeApplication
                     return;
                 }
 
-                string updateQuery = "UPDATE Application SET App_Status = @Status WHERE App_Animal_id = @ApplicationId";
+                string updateQuery = @"UPDATE Application SET App_Status = @Status WHERE App_Id = @ApplicationId";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -137,24 +138,53 @@ namespace AdoptmeApplication
 
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("Status updated successfully");
+                                MessageBox.Show("Application status updated successfully");
+
+                                string checkAnimalStatusQuery = @"SELECT COUNT(*) FROM Application 
+                                                                WHERE App_Animal_id = (SELECT App_Animal_id FROM Application WHERE App_Id = @ApplicationId AND App_Status = 'Approved')";
+
+                                using (SqlCommand checkCommand = new SqlCommand(checkAnimalStatusQuery, connection))
+                                {
+                                    checkCommand.Parameters.AddWithValue("@ApplicationId", applicationId);
+
+                                    int approvedApplicationsCount = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                                    string newAnimalStatus = "Available";  // Default status
+                                    
+                                    if (approvedApplicationsCount > 0)
+                                    {
+                                        newAnimalStatus = "Adopted"; // If any application is approved, set animal status to 'Adopted'
+                                    }
+
+                                    // Update the animal status based on application status
+                                    string updateAnimalStatusQuery = @"UPDATE Animal SET Animal_Status = @NewStatus 
+                                                                    WHERE Animal_id = (SELECT App_Animal_id FROM Application WHERE App_Id = @ApplicationId)";
+
+                                    using (SqlCommand updateAnimalCommand = new SqlCommand(updateAnimalStatusQuery, connection))
+                                    {
+                                        updateAnimalCommand.Parameters.AddWithValue("@ApplicationId", applicationId);
+                                        updateAnimalCommand.Parameters.AddWithValue("@NewStatus", newAnimalStatus);
+                                        updateAnimalCommand.ExecuteNonQuery();
+                                    }
+                                }
+
                                 LoadAllApplications();
                             }
                             else
                             {
-                                MessageBox.Show("Could not update the status");
+                                MessageBox.Show("Could not update the application status.");
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error updating the status: " + ex.Message);
+                        MessageBox.Show("Error updating the application status: " + ex.Message);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Please select a record to update");
+                MessageBox.Show("Please select a record to update.");
             }
         }
 
@@ -174,16 +204,27 @@ namespace AdoptmeApplication
                 return;
             }
 
-            if (!int.TryParse(searchValue, out int appId))
-            {
-                MessageBox.Show("Please enter a valid numeric Application ID.");
-                return;
-            }
+            string query;
+            SqlParameter searchOption;
 
-            string query = "SELECT App_Id, App_FullName, App_Address, App_PhoneNumber, App_Email, " +
-                  "App_NumAdults, App_NumChildren, App_TimeHome, App_OutdoorSpace, " +
-                  "App_PetsHome, App_Animal_id, App_Status FROM Application " +
-                  "WHERE App_Id = @App_Id";
+            if (int.TryParse(searchValue, out int appId))
+            {
+                query = "SELECT App_Id, App_FullName, App_Address, App_PhoneNumber, App_Email, " +
+                        "App_NumAdults, App_NumChildren, App_TimeHome, App_OutdoorSpace, " +
+                        "App_PetsHome, App_Animal_id, App_Status " +
+                        "FROM Application WHERE App_Id = @SearchValue";
+
+                searchOption = new SqlParameter("@SearchValue", appId);
+            }
+            else
+            {
+                query = "SELECT App_Id, App_FullName, App_Address, App_PhoneNumber, App_Email, " +
+                        "App_NumAdults, App_NumChildren, App_TimeHome, App_OutdoorSpace, " +
+                        "App_PetsHome, App_Animal_id, App_Status " +
+                        "FROM Application WHERE App_FullName LIKE @SearchValue";
+
+                searchOption = new SqlParameter("@SearchValue", "%" + searchValue + "%");
+            }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -193,8 +234,7 @@ namespace AdoptmeApplication
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Agregar el parámetro de Application ID
-                        command.Parameters.AddWithValue("@App_Id", appId);
+                        command.Parameters.Add(searchOption);
 
                         SqlDataReader reader = command.ExecuteReader();
 
