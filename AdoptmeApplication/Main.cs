@@ -17,6 +17,7 @@ namespace AdoptmeApplication
             LoadAllAnimals();
             LoadAllLocations();
             LoadAllTypeAnimals();
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -339,6 +340,8 @@ namespace AdoptmeApplication
                                 CreateCategorytoolStripMenuItem.Visible = true;
                                 ViewApplicationsToolStripMenuItem.Visible = true;
                                 ButtonLogout.Visible = true;
+                                txtUsername.Text = "";
+                                txtPassword.Text = "";
                             }
                             else
                             {
@@ -346,6 +349,8 @@ namespace AdoptmeApplication
                                 CreateCategorytoolStripMenuItem.Visible = false;
                                 ViewApplicationsToolStripMenuItem.Visible = false;
                                 ButtonLogout.Visible = false;
+                                txtUsername.Text = "";
+                                txtPassword.Text = "";
                             }
 
 

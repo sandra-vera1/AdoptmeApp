@@ -28,6 +28,7 @@ namespace AdoptmeApplication
 
         }
 
+        bool Adopted = false;
         private void LoadAnimalDetails()
         {
             string query = @"SELECT Ani.Animal_Name, Ani.Animal_Age, Ani.Animal_Sex, Ani.Animal_Breed, Ani.Animal_Size, 
@@ -70,15 +71,7 @@ namespace AdoptmeApplication
                             {
                                 pictureBox1.Image = null;
                             }
-
-                            if (reader["Animal_Status"].ToString() == "Adopted")
-                            {
-                                btnAdoptMe.Visible = false;
-                            }
-                            else
-                            {
-                                btnAdoptMe.Visible = true;
-                            }
+                            Adopted = reader["Animal_Status"].ToString() == "Adopted";                            
                         }
                     }
                 }
@@ -117,12 +110,12 @@ namespace AdoptmeApplication
             if (SessionAdministrator.IsLoggedIn)
             {
                 btnUpdate.Visible = true;
-                btnAdoptMe.Visible = true;
+                btnAdoptMe.Visible = false;
             }
             else
             {
                 btnUpdate.Visible = false;
-                btnAdoptMe.Visible = true;
+                btnAdoptMe.Visible = !Adopted;
             }
         }
     }
