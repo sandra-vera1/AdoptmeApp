@@ -97,13 +97,16 @@ namespace AdoptmeApplication
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
                 int applicationId = Convert.ToInt32(selectedRow.Cells["App_Id"].Value);
+                int animalId = Convert.ToInt32(selectedRow.Cells["App_Animal_id"].Value);
 
                 string newStatus = "";
+
                 if (rboPending.Checked)
                 {
                     newStatus = "Pending";
@@ -122,13 +125,30 @@ namespace AdoptmeApplication
                     return;
                 }
 
-                string updateQuery = @"UPDATE Application SET App_Status = @Status WHERE App_Id = @ApplicationId";
-
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     try
                     {
                         connection.Open();
+
+                        if (newStatus == "Approved")
+                        {
+                            string checkExistingApprovedQuery = @"SELECT COUNT(*) FROM Application 
+                                                          WHERE App_Animal_id = @AnimalId AND App_Status = 'Approved'";
+                            using (SqlCommand checkCommand = new SqlCommand(checkExistingApprovedQuery, connection))
+                            {
+                                checkCommand.Parameters.AddWithValue("@AnimalId", animalId);
+                                int existingApprovedCount = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                                if (existingApprovedCount > 0)
+                                {
+                                    MessageBox.Show($"The animal with Id:{animalId} already has an approved application.");
+                                    return;
+                                }
+                            }
+                        }
+
+                        string updateQuery = @"UPDATE Application SET App_Status = @Status WHERE App_Id = @ApplicationId";
                         using (SqlCommand command = new SqlCommand(updateQuery, connection))
                         {
                             command.Parameters.AddWithValue("@Status", newStatus);
@@ -138,36 +158,8 @@ namespace AdoptmeApplication
 
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("Application status updated successfully");
-
-                                string checkAnimalStatusQuery = @"SELECT COUNT(*) FROM Application 
-                                                                WHERE App_Animal_id = (SELECT App_Animal_id FROM Application WHERE App_Id = @ApplicationId AND App_Status = 'Approved')";
-
-                                using (SqlCommand checkCommand = new SqlCommand(checkAnimalStatusQuery, connection))
-                                {
-                                    checkCommand.Parameters.AddWithValue("@ApplicationId", applicationId);
-
-                                    int approvedApplicationsCount = Convert.ToInt32(checkCommand.ExecuteScalar());
-
-                                    string newAnimalStatus = "Available";  // Default status
-                                    
-                                    if (approvedApplicationsCount > 0)
-                                    {
-                                        newAnimalStatus = "Adopted"; // If any application is approved, set animal status to 'Adopted'
-                                    }
-
-                                    // Update the animal status based on application status
-                                    string updateAnimalStatusQuery = @"UPDATE Animal SET Animal_Status = @NewStatus 
-                                                                    WHERE Animal_id = (SELECT App_Animal_id FROM Application WHERE App_Id = @ApplicationId)";
-
-                                    using (SqlCommand updateAnimalCommand = new SqlCommand(updateAnimalStatusQuery, connection))
-                                    {
-                                        updateAnimalCommand.Parameters.AddWithValue("@ApplicationId", applicationId);
-                                        updateAnimalCommand.Parameters.AddWithValue("@NewStatus", newAnimalStatus);
-                                        updateAnimalCommand.ExecuteNonQuery();
-                                    }
-                                }
-
+                                MessageBox.Show("Application status updated successfully.");
+                                UpdateAnimalStatus(animalId, connection);
                                 LoadAllApplications();
                             }
                             else
@@ -185,6 +177,37 @@ namespace AdoptmeApplication
             else
             {
                 MessageBox.Show("Please select a record to update.");
+            }
+        }
+
+        private void UpdateAnimalStatus(int animalId, SqlConnection connection)
+        {
+            try
+            {
+                string checkApprovedQuery = @"SELECT COUNT(*) FROM Application 
+                                            WHERE App_Animal_id = @AnimalId AND App_Status = 'Approved'";
+
+                using (SqlCommand checkCommand = new SqlCommand(checkApprovedQuery, connection))
+                {
+                    checkCommand.Parameters.AddWithValue("@AnimalId", animalId);
+                    int approvedCount = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                    string newAnimalStatus = (approvedCount > 0) ? "Adopted" : "Available";
+
+                    string updateAnimalStatusQuery = @"UPDATE Animal SET Animal_Status = @NewStatus 
+                                               WHERE Animal_id = @AnimalId";
+
+                    using (SqlCommand updateCommand = new SqlCommand(updateAnimalStatusQuery, connection))
+                    {
+                        updateCommand.Parameters.AddWithValue("@NewStatus", newAnimalStatus);
+                        updateCommand.Parameters.AddWithValue("@AnimalId", animalId);
+                        updateCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating the animal status: " + ex.Message);
             }
         }
 
