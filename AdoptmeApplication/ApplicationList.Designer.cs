@@ -52,7 +52,7 @@
             lblUpdate.AutoSize = true;
             lblUpdate.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUpdate.ForeColor = Color.DarkGreen;
-            lblUpdate.Location = new Point(524, 98);
+            lblUpdate.Location = new Point(648, 121);
             lblUpdate.Margin = new Padding(2, 0, 2, 0);
             lblUpdate.Name = "lblUpdate";
             lblUpdate.Size = new Size(430, 46);
@@ -63,10 +63,10 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(56, -38);
+            pictureBox2.Location = new Point(113, 37);
             pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(270, 205);
+            pictureBox2.Size = new Size(424, 205);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 75;
             pictureBox2.TabStop = false;
@@ -81,7 +81,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1501, 464);
+            dataGridView1.Size = new Size(1643, 464);
             dataGridView1.TabIndex = 79;
             // 
             // btnSave
@@ -93,7 +93,7 @@
             btnSave.GradientAngle = 90F;
             btnSave.GradientBottomColor = SystemColors.ActiveBorder;
             btnSave.GradientTopColor = Color.LightSlateGray;
-            btnSave.Location = new Point(1298, 203);
+            btnSave.Location = new Point(1440, 203);
             btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(88, 39);
@@ -105,7 +105,7 @@
             // lblResult
             // 
             lblResult.AutoSize = true;
-            lblResult.Location = new Point(971, 216);
+            lblResult.Location = new Point(1113, 216);
             lblResult.Margin = new Padding(2, 0, 2, 0);
             lblResult.Name = "lblResult";
             lblResult.Size = new Size(52, 20);
@@ -115,7 +115,7 @@
             // rboPending
             // 
             rboPending.AutoSize = true;
-            rboPending.Location = new Point(1033, 214);
+            rboPending.Location = new Point(1175, 214);
             rboPending.Margin = new Padding(2);
             rboPending.Name = "rboPending";
             rboPending.Size = new Size(83, 24);
@@ -127,7 +127,7 @@
             // rboApproved
             // 
             rboApproved.AutoSize = true;
-            rboApproved.Location = new Point(1118, 214);
+            rboApproved.Location = new Point(1260, 214);
             rboApproved.Margin = new Padding(2);
             rboApproved.Name = "rboApproved";
             rboApproved.Size = new Size(96, 24);
@@ -139,7 +139,7 @@
             // rboDenied
             // 
             rboDenied.AutoSize = true;
-            rboDenied.Location = new Point(1213, 214);
+            rboDenied.Location = new Point(1355, 214);
             rboDenied.Margin = new Padding(2);
             rboDenied.Name = "rboDenied";
             rboDenied.Size = new Size(78, 24);
@@ -157,7 +157,7 @@
             btnPetPopularity.GradientAngle = 90F;
             btnPetPopularity.GradientBottomColor = SystemColors.ActiveBorder;
             btnPetPopularity.GradientTopColor = Color.LightSlateGray;
-            btnPetPopularity.Location = new Point(1390, 203);
+            btnPetPopularity.Location = new Point(1532, 203);
             btnPetPopularity.Margin = new Padding(2);
             btnPetPopularity.Name = "btnPetPopularity";
             btnPetPopularity.Size = new Size(128, 39);
@@ -208,7 +208,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
-            ClientSize = new Size(1529, 799);
+            ClientSize = new Size(1683, 799);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
             Controls.Add(label1);
